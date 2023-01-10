@@ -1,0 +1,4 @@
+SELECT 
+*,
+ifnull((select count(*) from compra c  where c.CodProducto = p.CodProducto group by CodProducto),0) as PopularidadCompras
+FROM producto p
