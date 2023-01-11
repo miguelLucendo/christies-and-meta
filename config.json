@@ -1,4 +1,7 @@
 {
     "page_url": "/christies-and-meta/index.php/",
-    "project_url": "http://localhost/christies-and-meta/"
+    "project_url": "http://localhost/christies-and-meta/",
+    "database_url": "mysql:host=localhost;dbname=christies_and_meta",
+    "database_user": "root",
+    "database_pass": ""
 }
