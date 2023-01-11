@@ -15,15 +15,16 @@ $array_ruta = array_filter(explode("/", $ruta));
 //Decido la ruta en función de los elementos del array
 // Quiere entrar al backend de la aplicación
 if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
-    if (isset($array_ruta[1]) && $array_ruta[1] == 'login') {
+    if (isset($array_ruta[1]) && $array_ruta[1] == 'login' && !isset($array_ruta[2])) {
         $ac = new AuthController;
         $ac->backendLogin();
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'login' && isset($array_ruta[2]) && $array_ruta[2] == 'process') {
+        echo 'process';
     } else if ($array_ruta[1] && $array_ruta[1] == 'resetpassword') {
         $ac = new AuthController;
         $ac->backendResetPassword();
     }
 
-// Quiere hacer consultas a la api de la aplicación
+    // Quiere hacer consultas a la api de la aplicación
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "api") {
-
 }

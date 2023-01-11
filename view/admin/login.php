@@ -37,14 +37,14 @@ $project_url = $decoded_json['project_url'];
                     <span class="text-danger">Usuario o contraseña incorrecto.</span>
                   </div>
                 </div>
-                <form>
+                <form method="POST" action="index.php/admin/login/process">
                   <div class="form-group">
                     <label>email *</label>
-                    <input type="text" class="form-control p_input">
+                    <input type="text" class="form-control p_input" required>
                   </div>
                   <div class="form-group">
                     <label>Contraseña *</label>
-                    <input type="text" class="form-control p_input">
+                    <input type="text" class="form-control p_input" required>
                   </div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <a href="index.php/admin/resetpassword" class="forgot-pass">He olvidado mi contraseña</a>
