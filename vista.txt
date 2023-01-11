@@ -1,4 +1,6 @@
 SELECT 
 *,
-ifnull((select count(*) from compra c  where c.CodProducto = p.CodProducto group by CodProducto),0) as PopularidadCompras
+ifnull((select count(*) from compra c  where c.CodProducto = p.CodProducto group by CodProducto),0) as PopularidadCompras,
+ifnull((select count(*) from resenya r where r.CodProducto = p.CodProducto group by CodProducto),0) as PopularidadResenyas,
+ifnull((select count(*) from compra c  where c.CodProducto = p.CodProducto group by CodProducto),0)+ifnull((select count(*) from resenya r where r.CodProducto = p.CodProducto group by CodProducto),0) as PopularidadTotal
 FROM producto p
