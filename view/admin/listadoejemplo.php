@@ -1,12 +1,13 @@
-<?php 
+<?php
 $config_json = file_get_contents('config.json');
 $decoded_json = json_decode($config_json, true);
 $project_url = $decoded_json['project_url'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <base href="<?php echo $project_url ?>">
+
+<head>
+    <base href="<?php echo $project_url ?>">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,32 +24,107 @@ $project_url = $decoded_json['project_url'];
     <link rel="stylesheet" href="view/template/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="view/template/assets/images/favicon.png" />
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container-scroller">
-      <!-- partial:../../partials/_sidebar.html -->
-      <?php require_once 'sidebar.php'?>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_navbar.html -->
-        <?php require_once 'navbar.php'?>
+        <!-- partial:../../partials/_sidebar.html -->
+        <?php require_once 'sidebar.php' ?>
         <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_navbar.html -->
+            <?php require_once 'navbar.php' ?>
+            <!-- partial -->
+
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- CABECERA PAGINA -->
+                    <div class="page-header">
+                        <h3 class="page-title"> Listado de ejemplo </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- FIN CABECERA PAGINA -->
+                    <!-- CONTENIDO PAGINA -->
+                    <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Tabla de ejemplo</h4>
+                                    <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                                        <input type="text" class="form-control" placeholder="Search products">
+                                    </form>
+                                    <div class="table-responsive my-5">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>User</th>
+                                                    <th>Product</th>
+                                                    <th>Sale</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Jacob</td>
+                                                    <td>Photoshop</td>
+                                                    <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
+                                                    <td><label class="badge badge-danger">Pending</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Messsy</td>
+                                                    <td>Flash</td>
+                                                    <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>John</td>
+                                                    <td>Premier</td>
+                                                    <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
+                                                    <td><label class="badge badge-info">Fixed</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Peter</td>
+                                                    <td>After effects</td>
+                                                    <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
+                                                    <td><label class="badge badge-success">Completed</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dave</td>
+                                                    <td>53275535</td>
+                                                    <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FIN CONTENIDO PAGINA -->
+                </div>
+
+
+
+
+                <!-- content-wrapper ends -->
+                <!-- partial:../../partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>
+                    </div>
+                </footer>
+                <!-- partial -->
             </div>
-          </footer>
-          <!-- partial -->
+            <!-- main-panel ends -->
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+        <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
@@ -65,5 +141,6 @@ $project_url = $decoded_json['project_url'];
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
-  </body>
+</body>
+
 </html>
