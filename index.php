@@ -1,6 +1,7 @@
 <?php
 // requires
 require_once 'controller/AuthController.php';
+require_once 'controller/Controller.php';
 
 //Ruta de la home
 $config_json = file_get_contents('config.json');
@@ -20,9 +21,12 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $ac->backendLogin();
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'login' && isset($array_ruta[2]) && $array_ruta[2] == 'process') {
         echo 'process';
-    } else if ($array_ruta[1] && $array_ruta[1] == 'resetpassword') {
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'resetpassword') {
         $ac = new AuthController;
         $ac->backendResetPassword();
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'home') {
+        $c = new Controller;
+        $c->muestraHome();
     }
 
     // Quiere hacer consultas a la api de la aplicación
