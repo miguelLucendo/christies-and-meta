@@ -61,7 +61,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Listado ejemplo</span>
             </a>
         </li>
     </ul>
