@@ -1,22 +1,28 @@
+<?php 
+$config_json = file_get_contents('config.json');
+$decoded_json = json_decode($config_json, true);
+$project_url = $decoded_json['project_url'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <base href="<?php echo $project_url ?>">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Corona Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../template/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../template/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="view/template/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="view/template/assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="../template/assets/css/style.css">
+    <link rel="stylesheet" href="view/template/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../template/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="view/template/assets/images/favicon.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -25,10 +31,10 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
-                <h3 class="card-title text-left mb-3">Login administración</h3>
+                <h3 class="card-title text-left mb-3">Recuperacion de contraseña</h3>
                 <div class="card my-4" style="background-color:#3c4356">
                   <div class="card-body">
-                    <span class="text-danger">Usuario o contraseña incorrecto.</span>
+                    <span class="text-success">Correo de recuperación enviado con éxito.</span>
                   </div>
                 </div>
                 <form>
@@ -37,15 +43,13 @@
                     <input type="text" class="form-control p_input">
                   </div>
                   <div class="form-group">
-                    <label>Contraseña *</label>
+                    <label>repite email *</label>
                     <input type="text" class="form-control p_input">
                   </div>
-                  <div class="form-group d-flex align-items-center justify-content-between">
-                    <a href="recuperacion_contrasenya.html" class="forgot-pass">He olvidado mi contraseña</a>
-                  </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-block enter-btn">Login administración</button>
+                    <button type="submit" class="btn btn-primary btn-block enter-btn">Recuperar contraseña</button>
                   </div>
+                  <p class="sign-up">¿Ya has recibido tu correo? <a href="index.php/admin/login"> Inicia sesión</a></p>
                 </form>
               </div>
             </div>
@@ -58,16 +62,16 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../template/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="view/template/assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="../template/assets/js/off-canvas.js"></script>
-    <script src="../template/assets/js/hoverable-collapse.js"></script>
-    <script src=".../template/assets/js/misc.js"></script>
-    <script src="../template/assets/js/settings.js"></script>
-    <script src="../template/assets/js/todolist.js"></script>
+    <script src="view/template/assets/js/off-canvas.js"></script>
+    <script src="view/template/assets/js/hoverable-collapse.js"></script>
+    <script src="view/template/assets/js/misc.js"></script>
+    <script src="view/template/assets/js/settings.js"></script>
+    <script src="view/template/assets/js/todolist.js"></script>
     <!-- endinject -->
   </body>
 </html>
