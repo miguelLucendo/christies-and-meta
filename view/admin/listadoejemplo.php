@@ -57,8 +57,17 @@ $project_url = $decoded_json['project_url'];
                                     <h4 class="card-title">Tabla de ejemplo</h4>
                                     <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
                                         <input type="text" class="form-control" placeholder="Search products">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-outline-secondary btn-icon-text dropdown-toggle" data-bs-toggle="dropdown">
+                                                <i class="mdi mdi-filter-outline btn-icon-prepend"></i></button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item">Filtro1</a>
+                                                <a class="dropdown-item">Filtro2</a>
+                                                <a class="dropdown-item">Filtro3</a>
+                                            </div>
+                                        </div>
                                     </form>
-                                    <div class="table-responsive my-5">
+                                    <div class="table-responsive mt-5 mb-4">
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
@@ -99,8 +108,42 @@ $project_url = $decoded_json['project_url'];
                                                     <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
                                                     <td><label class="badge badge-warning">In progress</label></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>Dave</td>
+                                                    <td>53275535</td>
+                                                    <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dave</td>
+                                                    <td>53275535</td>
+                                                    <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dave</td>
+                                                    <td>53275535</td>
+                                                    <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dave</td>
+                                                    <td>53275535</td>
+                                                    <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dave</td>
+                                                    <td>53275535</td>
+                                                    <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
                                             </tbody>
                                         </table>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-outline-info">Anterior</button>
+                                        <button type="button" class="btn btn-outline-info">Siguiente</button>
                                     </div>
                                 </div>
                             </div>
