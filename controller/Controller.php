@@ -8,4 +8,7 @@ class Controller {
     public function muestraListado() {
         include 'view/admin/listadoejemplo.php';
     }
+    public function muestraFicha() {
+        include 'view/admin/fichaejemplo.php';
+    }
 }

@@ -31,6 +31,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'listado') {
         $c = new Controller;
         $c->muestraListado();
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'ficha') {
+        $c = new Controller;
+        $c->muestraFicha();
     }
 
     // Quiere hacer consultas a la api de la aplicación
