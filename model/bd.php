@@ -26,7 +26,8 @@ class BD
      * @param  string $pass
      * @return bool
      */
-    public function login(string $user, string $pass): bool {
+    public function login(string $user, string $pass): bool
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = 'select * from usuario where Email = :user and Contrasenya = sha1(:pass) and Admin = 1';
@@ -42,5 +43,22 @@ class BD
         $stmt->closeCursor();
         $db = null;
         return false;
+    }
+    public function getUsuarioByCod($codUsuario)
+    {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = 'select * from usuario where CodUsuario = :cod';
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute(['cod' => $codUsuario]);
+        $aux = '';
+        foreach ($stmt as $usuario) {
+            $aux = $usuario;
+            break;
+        }
+        $stmt->closeCursor();
+        $db = null;
+        return $aux;
     }
 }

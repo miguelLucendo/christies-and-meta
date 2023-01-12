@@ -2,6 +2,7 @@
 // requires
 require_once 'controller/AuthController.php';
 require_once 'controller/Controller.php';
+require_once 'controller/ApiController.php';
 
 //Ruta de la home
 $config_json = file_get_contents('config.json');
@@ -38,4 +39,8 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
 
     // Quiere hacer consultas a la api de la aplicación
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "api") {
+    $ap = new ApiController;
+    if (isset($array_ruta[1]) && $array_ruta[1] == 'usuario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
+        $ap->getUsuarioByCod((int)$array_ruta[2]);
+    }
 }
