@@ -11,7 +11,7 @@ $project_url = $decoded_json['project_url'];
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>Christie's & Meta</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="view/template/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="view/template/assets/vendors/css/vendor.bundle.base.css">
@@ -43,8 +43,7 @@ $project_url = $decoded_json['project_url'];
                         <h3 class="page-title"> Listado de ejemplo </h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                                <li class="breadcrumb-item active" aria-current="page">Listado ejemplo</li>
                             </ol>
                         </nav>
                     </div>
