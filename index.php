@@ -20,7 +20,8 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $ac = new AuthController;
         $ac->backendLogin();
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'login' && isset($array_ruta[2]) && $array_ruta[2] == 'process') {
-        echo 'process';
+        $ac = new AuthController;
+        $ac->processBackendLogin();
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'resetpassword') {
         $ac = new AuthController;
         $ac->backendResetPassword();

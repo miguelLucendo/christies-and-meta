@@ -40,11 +40,11 @@ $project_url = $decoded_json['project_url'];
                 <form method="POST" action="index.php/admin/login/process">
                   <div class="form-group">
                     <label>email *</label>
-                    <input type="text" class="form-control p_input" required>
+                    <input type="text" class="form-control p_input" name="user" required>
                   </div>
                   <div class="form-group">
                     <label>Contraseña *</label>
-                    <input type="text" class="form-control p_input" required>
+                    <input type="password" class="form-control p_input" name="pass" required>
                   </div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <a href="index.php/admin/resetpassword" class="forgot-pass">He olvidado mi contraseña</a>
