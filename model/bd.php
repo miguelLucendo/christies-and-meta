@@ -61,4 +61,15 @@ class BD
         $db = null;
         return $aux;
     }
+    public function getUsuariosByPage($indicePagina) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $indicePagina = ($indicePagina * 10) - 10;
+
+        $sql = "select * from usuario limit $indicePagina,10";
+        $usuarios = $db->query($sql);
+
+        $db = null;
+        return $usuarios;
+    }
 }

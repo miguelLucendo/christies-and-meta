@@ -65,6 +65,14 @@
             </a>
         </li>
         <li class="nav-item menu-items">
+            <a class="nav-link" href="index.php/admin/usuarios">
+                <span class="menu-icon">
+                    <i class="mdi mdi-account"></i>
+                </span>
+                <span class="menu-title">Usuarios</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
             <a class="nav-link" href="index.php/admin/listado">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>

@@ -1,11 +1,12 @@
-<?php 
+<?php
 
 require_once 'bd.php';
 
 /**
  * @author Miguel Lucendo Esteban
  */
-class Usuario {
+class Usuario
+{
 
     public $codUsuario, $email, $contrasenya, $nombre, $apellidos, $moneda, $admin;
 
@@ -19,17 +20,18 @@ class Usuario {
         $this->moneda = $moneda;
         $this->admin = $admin;
     }
-    
+
     /**
      * getUsuarioByCod
      *
      * @param  int $codUsuario
      * @return Usuario
      */
-    public static function getUsuarioByCod(int $codUsuario): Usuario {
+    public static function getUsuarioByCod(int $codUsuario): Usuario
+    {
         $usuario = (new BD)->getUsuarioByCod($codUsuario);
 
-       return new Usuario(
+        return new Usuario(
             $usuario['CodUsuario'],
             $usuario['Email'],
             $usuario['Contrasenya'],
@@ -39,5 +41,25 @@ class Usuario {
             $usuario['Admin']
         );
     }
+    public static function getUsuariosByPage(int $indicePagina)
+    {
+        $usuarios = (new BD)->getUsuariosByPage($indicePagina);
 
+        $array = [];
+
+        foreach ($usuarios as $usuario) {
+            $user = new Usuario(
+                $usuario['CodUsuario'],
+                $usuario['Email'],
+                $usuario['Contrasenya'],
+                $usuario['Nombre'],
+                $usuario['Apellidos'],
+                $usuario['Moneda'],
+                $usuario['Admin']
+            );
+            $array[] = $user;
+        }
+
+        return $array;
+    }
 }

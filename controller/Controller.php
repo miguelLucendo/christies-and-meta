@@ -11,4 +11,7 @@ class Controller {
     public function muestraFicha() {
         include 'view/admin/fichaejemplo.php';
     }
+    public function muestraUsuarios() {
+        include 'view/admin/usuarios.php';
+    }
 }
