@@ -54,7 +54,6 @@ $project_url = $decoded_json['project_url'];
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Tabla de ejemplo</h4>
                                     <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
                                         <input type="text" class="form-control" placeholder="Search products">
                                         <div class="btn-group">

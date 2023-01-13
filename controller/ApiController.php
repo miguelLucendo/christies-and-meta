@@ -1,6 +1,7 @@
 <?php
 require_once 'model/Usuario.php';
 require_once 'model/Producto.php';
+require_once 'model/Categoria.php';
 
 class ApiController
 {
@@ -17,5 +18,11 @@ class ApiController
     }
     public function getProductosByPage(int $indicePagina) {
         echo json_encode(Producto::getProductosByPage($indicePagina));
+    }
+    public function getCategoriaByCod(int $codProducto) {
+        echo json_encode((array)Categoria::getCategoriaByCod($codProducto));
+    }
+    public function getCategoriasByPage(int $indicePagina) {
+        echo json_encode(Categoria::getCategoriasByPage($indicePagina));
     }
 }

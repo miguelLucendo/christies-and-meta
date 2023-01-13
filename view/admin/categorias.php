@@ -76,7 +76,7 @@ $project_url = $decoded_json['project_url'];
                                                     <th>Categoria Padre</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="tbody-producto">
+                                            <tbody id="tbody-categoria">
                                                 
                                             </tbody>
                                         </table>
@@ -126,7 +126,7 @@ $project_url = $decoded_json['project_url'];
     <!-- End custom js for this page -->
     <!-- MIS JS -->
     
-    <!-- <script src="view/admin/js/listadoProducto.js"></script> -->
+    <script src="view/admin/js/listadoCategoria.js"></script>
 </body>
 
 </html>

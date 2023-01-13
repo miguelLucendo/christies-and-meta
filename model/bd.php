@@ -100,4 +100,32 @@ class BD
         $db = null;
         return $productos;
     }
+    public function getCategoriaByCod($codCategoria) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = 'select * from categoria where CodCategoria = :cod';
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute(['cod' => $codCategoria]);
+        $aux = '';
+        foreach ($stmt as $categoria) {
+            $aux = $categoria;
+            break;
+        }
+        $stmt->closeCursor();
+        $db = null;
+        return $aux;
+    }
+    public function getCategoriasByPage($indicePagina) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $indicePagina = ($indicePagina * 10) - 10;
+
+        $sql = "select * from categoria limit $indicePagina,10";
+        $categorias = $db->query($sql);
+
+        $db = null;
+        return $categorias;
+    }
 }
