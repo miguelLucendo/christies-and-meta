@@ -42,6 +42,7 @@ $project_url = $decoded_json['project_url'];
                         <h3 class="page-title"> Ficha de ejemplo </h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
+                                <li class="breadcrumb-item" aria-current="page"><a href="#">Ejemplo</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Ficha ejemplo</li>
                             </ol>
                         </nav>
