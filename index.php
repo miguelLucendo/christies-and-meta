@@ -40,6 +40,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'ficha') {
         $c = new Controller;
         $c->muestraFicha();
+    } else {
+        $c = new Controller;
+        $c->carga404();
     }
 
     // Quiere hacer consultas a la api de la aplicación
@@ -50,4 +53,7 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'usuario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ap->getUsuarioByCod((int)$array_ruta[2]);
     }
+} else { // No ha encontrado la ruta a la que quiere acceder el usuario
+    $c = new Controller;
+    $c->carga404();
 }

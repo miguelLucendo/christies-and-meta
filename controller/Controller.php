@@ -2,6 +2,9 @@
 
 class Controller {
 
+    public function carga404() {
+        include 'view/admin/error-404.php';
+    }
     public function muestraHome() {
         include 'view/admin/home.php';
     }
