@@ -75,7 +75,7 @@ class BD
     public function getProductoByCod($codProducto) {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = 'select * from producto where CodProducto = :cod';
+        $sql = 'select p.*, c.Nombre as NombreCategoria from producto as p inner join categoria as c on p.CodCategoria = c.CodCategoria where p.CodProducto = :cod;';
 
         $stmt = $db->prepare($sql);
 
@@ -88,5 +88,16 @@ class BD
         $stmt->closeCursor();
         $db = null;
         return $aux;
+    }
+    public function getProductosByPage($indicePagina) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $indicePagina = ($indicePagina * 10) - 10;
+
+        $sql = "select p.*, c.Nombre as NombreCategoria from producto as p inner join categoria as c on p.CodCategoria = c.CodCategoria limit $indicePagina,10";
+        $productos = $db->query($sql);
+
+        $db = null;
+        return $productos;
     }
 }

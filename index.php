@@ -34,6 +34,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'usuarios') {
         $c = new Controller;
         $c->muestraUsuarios();
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'productos') {
+        $c = new Controller;
+        $c->muestraProductos();
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'listado') {
         $c = new Controller;
         $c->muestraListado();
@@ -47,11 +50,15 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
 
     // Quiere hacer consultas a la api de la aplicación
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "api") {
-    $ap = new ApiController;
+    $ac = new ApiController;
     if (isset($array_ruta[1]) && $array_ruta[1] == 'usuarios' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
-        $ap->getUsuariosByPage((int)$array_ruta[2]);
+        $ac->getUsuariosByPage((int)$array_ruta[2]);
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'productos' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
+        $ac->getProductosByPage((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'usuario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
-        $ap->getUsuarioByCod((int)$array_ruta[2]);
+        $ac->getUsuarioByCod((int)$array_ruta[2]);
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'producto' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
+        $ac->getProductoByCod((int)$array_ruta[2]);
     }
 } else { // No ha encontrado la ruta a la que quiere acceder el usuario
     $c = new Controller;

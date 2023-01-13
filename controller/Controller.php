@@ -17,4 +17,7 @@ class Controller {
     public function muestraUsuarios() {
         include 'view/admin/usuarios.php';
     }
+    public function muestraProductos() {
+        include 'view/admin/productos.php';
+    }
 }
