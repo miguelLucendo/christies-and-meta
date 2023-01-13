@@ -72,4 +72,21 @@ class BD
         $db = null;
         return $usuarios;
     }
+    public function getProductoByCod($codProducto) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = 'select * from producto where CodProducto = :cod';
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute(['cod' => $codProducto]);
+        $aux = '';
+        foreach ($stmt as $producto) {
+            $aux = $producto;
+            break;
+        }
+        $stmt->closeCursor();
+        $db = null;
+        return $aux;
+    }
 }
