@@ -37,6 +37,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'productos') {
         $c = new Controller;
         $c->muestraProductos();
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categorias') {
+        $c = new Controller;
+        $c->muestraCategorias();
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'listado') {
         $c = new Controller;
         $c->muestraListado();

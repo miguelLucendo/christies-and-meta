@@ -20,4 +20,7 @@ class Controller {
     public function muestraProductos() {
         include 'view/admin/productos.php';
     }
+    public function muestraCategorias() {
+        include 'view/admin/categorias.php';
+    }
 }
