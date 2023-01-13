@@ -1,4 +1,6 @@
 <?php
+// inicio la sesion aqui para que este iniciada cada vez que se entra al sitio web
+session_start();
 // requires
 require_once 'controller/AuthController.php';
 require_once 'controller/Controller.php';

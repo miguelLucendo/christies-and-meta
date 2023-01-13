@@ -11,7 +11,6 @@ class AuthController
 {
     public function backendLogin()
     {
-        session_start();
         if (!isset($_SESSION['autenticado'])) {
             include 'view/admin/login.php';
         } else {
@@ -35,7 +34,6 @@ class AuthController
         if (isset($_POST['user']) && !empty($_POST['user']) && isset($_POST['pass']) && !empty($_POST['pass'])) {
 
             if ((new BD)->login($_POST['user'], $_POST['pass'])) {
-                session_start();
                 $_SESSION['autenticado'] = true;
 
 
