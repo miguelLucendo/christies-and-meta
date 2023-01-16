@@ -150,8 +150,9 @@ class BD
 
         $indicePagina = ($indicePagina * 10) - 10;
 
-        $sql = "select c.*, u.Email, p.Nombre from comentario c inner join usuario u on c.CodUsuario = u.CodUsuario"
-        ." inner join producto p on c.CodProducto = p.CodProducto order by CodComentario ASC limit $indicePagina,10";
+        $sql = "select c.*, u.Email, p.Nombre from comentario c inner join usuario u ".
+        "on c.CodUsuario = u.CodUsuario inner join producto p on c.CodProducto = p.CodProducto".
+        " order by CodComentario ASC limit $indicePagina,10";
         $comentarios = $db->query($sql);
 
         $db = null;

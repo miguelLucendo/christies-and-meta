@@ -71,12 +71,13 @@ $project_url = $decoded_json['project_url'];
                                             <thead>
                                                 <tr>
                                                     <th>Codigo</th>
-                                                    <th>Nombre</th>
-                                                    <th>Descripcion</th>
-                                                    <th>Categoria Padre</th>
+                                                    <th>Usuario</th>
+                                                    <th>Producto</th>
+                                                    <th>Texto</th>
+                                                    <th>Fecha</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="tbody-categoria">
+                                            <tbody id="tbody-comentario">
                                                 
                                             </tbody>
                                         </table>

@@ -8,15 +8,17 @@ require_once 'bd.php';
 class Comentario
 {
 
-    public $codComentario, $codUsuario, $codProducto, $texto, $fecha;
+    public $codComentario, $codUsuario, $codProducto, $texto, $fecha, $nombreUsuario, $nombreProducto;
 
-    public function __construct($codComentario, $codUsuario, $codProducto, $texto, $fecha)
+    public function __construct($codComentario, $codUsuario, $codProducto, $texto, $fecha, $nombreUsuario, $nombreProducto)
     {
         $this->codComentario = $codComentario;
         $this->codUsuario = $codUsuario;
         $this->codProducto = $codProducto;
         $this->texto = $texto;
         $this->fecha = $fecha;
+        $this->nombreUsuario = $nombreUsuario;
+        $this->nombreProducto = $nombreProducto;
     }
 
     public static function getComentarioByCod($codComentario): Comentario
@@ -29,6 +31,8 @@ class Comentario
             $comentario['CodProducto'],
             $comentario['Texto'],
             $comentario['Fecha'],
+            $comentario['Email'],
+            $comentario['Nombre'],
         );
     }
 
@@ -45,6 +49,8 @@ class Comentario
                 $comentario['CodProducto'],
                 $comentario['Texto'],
                 $comentario['Fecha'],
+                $comentario['Email'],
+                $comentario['Nombre'],
             );
             $array[] = $comentario_aux;
         }

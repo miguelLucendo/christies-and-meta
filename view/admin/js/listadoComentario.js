@@ -14,8 +14,14 @@ window.onload = () => {
             let tbody = document.querySelector('#tbody-comentario');
             comentarios.forEach(comentario => {
                 let fila = document.createElement('tr');
-                fila.innerHTML = `<td>${comentario.CodComentario}</td><td>${comentario.email}</td><td>${comentario.nombre}</td>`+
-                `<td>${comentario.apellidos}</td><td>${comentario.moneda}</td>`;
+                fila.innerHTML = `<td>${comentario.codComentario}</td><td>${comentario.nombreUsuario}</td><td>${comentario.nombreProducto}</td>`;
+                    
+                if (comentario.texto.length > 100) {
+                    fila.innerHTML += `<td>${comentario.texto.substr(0, 100) + ' [...]'}</td>`
+                } else {
+                    fila.innerHTML += `<td>${comentario.texto}</td>`
+                }   
+                fila.innerHTML += `<td>${comentario.fecha}</td>`;
                 tbody.appendChild(fila);
             });
         }
@@ -23,21 +29,27 @@ window.onload = () => {
 }
 
 function siguiente() {
-    let url = URL_BASE + 'usuarios/'+ ++paginaActual;
+    let url = URL_BASE + 'comentarios/'+ ++paginaActual;
 
     $.ajax({
         url: url,
         type: 'GET',
         success: (json) => {
-            let usuarios = JSON.parse(json);
+            let comentarios = JSON.parse(json);
             let tbody = document.querySelector('#tbody-comentario');
-            if (usuarios.length > 0) {
+            if (comentarios.length > 0) {
                 tbody.innerHTML = '';
-                usuarios.forEach(usuario => {
-                        let fila = document.createElement('tr');
-                        fila.innerHTML = `<td>${usuario.codUsuario}</td><td>${usuario.email}</td><td>${usuario.nombre}</td>`+
-                        `<td>${usuario.apellidos}</td><td>${usuario.moneda}</td>`;
-                        tbody.appendChild(fila);
+                comentarios.forEach(comentario => {
+                    let fila = document.createElement('tr');
+                    fila.innerHTML = `<td>${comentario.codComentario}</td><td>${comentario.nombreUsuario}</td><td>${comentario.nombreProducto}</td>`;
+                        
+                    if (comentario.texto.length > 100) {
+                        fila.innerHTML += `<td>${comentario.texto.substr(0, 100) + ' [...]'}</td>`
+                    } else {
+                        fila.innerHTML += `<td>${comentario.texto}</td>`
+                    }   
+                    fila.innerHTML += `<td>${comentario.fecha}</td>`;
+                    tbody.appendChild(fila);
                 });
             } else {
                 paginaActual--;
@@ -46,7 +58,7 @@ function siguiente() {
     })
 }
 function anterior() {
-    let url = URL_BASE + 'usuarios/'+ --paginaActual;
+    let url = URL_BASE + 'comentarios/'+ --paginaActual;
     if (paginaActual < 1) {
         paginaActual = 1;
         return;
@@ -55,14 +67,20 @@ function anterior() {
         url: url,
         type: 'GET',
         success: (json) => {
-            let usuarios = JSON.parse(json);
-            if (usuarios.length > 0) {
+            let comentarios = JSON.parse(json);
+            if (comentarios.length > 0) {
                 let tbody = document.querySelector('#tbody-comentario');
                 tbody.innerHTML = '';
-                usuarios.forEach(usuario => {
+                comentarios.forEach(comentario => {
                     let fila = document.createElement('tr');
-                    fila.innerHTML = `<td>${usuario.codUsuario}</td><td>${usuario.email}</td><td>${usuario.nombre}</td>`+
-                    `<td>${usuario.apellidos}</td><td>${usuario.moneda}</td>`;
+                    fila.innerHTML = `<td>${comentario.codComentario}</td><td>${comentario.nombreUsuario}</td><td>${comentario.nombreProducto}</td>`;
+                        
+                    if (comentario.texto.length > 100) {
+                        fila.innerHTML += `<td>${comentario.texto.substr(0, 100) + ' [...]'}</td>`
+                    } else {
+                        fila.innerHTML += `<td>${comentario.texto}</td>`
+                    }   
+                    fila.innerHTML += `<td>${comentario.fecha}</td>`;
                     tbody.appendChild(fila);
                 });
             } else {
