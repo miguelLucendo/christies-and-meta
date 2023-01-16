@@ -66,7 +66,7 @@ class BD
 
         $indicePagina = ($indicePagina * 10) - 10;
 
-        $sql = "select * from usuario limit $indicePagina,10";
+        $sql = "select * from usuario order by CodUsuario ASC limit $indicePagina,10";
         $usuarios = $db->query($sql);
 
         $db = null;
@@ -94,7 +94,7 @@ class BD
 
         $indicePagina = ($indicePagina * 10) - 10;
 
-        $sql = "select p.*, c.Nombre as NombreCategoria from producto as p inner join categoria as c on p.CodCategoria = c.CodCategoria limit $indicePagina,10";
+        $sql = "select p.*, c.Nombre as NombreCategoria from producto as p inner join categoria as c on p.CodCategoria = c.CodCategoria order by CodProducto ASC limit $indicePagina,10";
         $productos = $db->query($sql);
 
         $db = null;
@@ -122,10 +122,39 @@ class BD
 
         $indicePagina = ($indicePagina * 10) - 10;
 
-        $sql = "select * from categoria limit $indicePagina,10";
+        $sql = "select * from categoria order by CodCategoria ASC limit $indicePagina,10";
         $categorias = $db->query($sql);
 
         $db = null;
         return $categorias;
+    }
+    public function getComentarioByCod($codComentario) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = 'select * from comentario where CodComentario = :cod';
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute(['cod' => $codComentario]);
+        $aux = '';
+        foreach ($stmt as $comentario) {
+            $aux = $comentario;
+            break;
+        }
+        $stmt->closeCursor();
+        $db = null;
+        return $aux;
+    }
+    public function getComentariosByPage($indicePagina) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $indicePagina = ($indicePagina * 10) - 10;
+
+        $sql = "select c.*, u.Email, p.Nombre from comentario c inner join usuario u on c.CodUsuario = u.CodUsuario"
+        ." inner join producto p on c.CodProducto = p.CodProducto order by CodComentario ASC limit $indicePagina,10";
+        $comentarios = $db->query($sql);
+
+        $db = null;
+        return $comentarios;
     }
 }

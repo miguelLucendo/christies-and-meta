@@ -2,6 +2,7 @@
 require_once 'model/Usuario.php';
 require_once 'model/Producto.php';
 require_once 'model/Categoria.php';
+require_once 'model/Comentario.php';
 
 class ApiController
 {
@@ -19,10 +20,16 @@ class ApiController
     public function getProductosByPage(int $indicePagina) {
         echo json_encode(Producto::getProductosByPage($indicePagina));
     }
-    public function getCategoriaByCod(int $codProducto) {
-        echo json_encode((array)Categoria::getCategoriaByCod($codProducto));
+    public function getCategoriaByCod(int $codCategoria) {
+        echo json_encode((array)Categoria::getCategoriaByCod($codCategoria));
     }
     public function getCategoriasByPage(int $indicePagina) {
         echo json_encode(Categoria::getCategoriasByPage($indicePagina));
+    }
+    public function getComentarioByCod(int $codComentario) {
+        echo json_encode((array)Comentario::getComentarioByCod($codComentario));
+    }
+    public function getComentariosByPage(int $indicePagina) {
+        echo json_encode(Comentario::getComentariosByPage($indicePagina));
     }
 }

@@ -63,12 +63,16 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $ac->getProductosByPage((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categorias' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getCategoriasByPage((int)$array_ruta[2]);
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'comentarios' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
+        $ac->getComentariosByPage((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'usuario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getUsuarioByCod((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'producto' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getProductoByCod((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categoria' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getCategoriaByCod((int)$array_ruta[2]);
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'comentario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
+        $ac->getComentarioByCod((int)$array_ruta[2]);
     }
 } else { // No ha encontrado la ruta a la que quiere acceder el usuario
     $c = new Controller;
