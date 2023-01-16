@@ -43,7 +43,7 @@ $project_url = $decoded_json['project_url'];
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item" aria-current="page"><a href="index.php/admin/usuarios">Usuarios</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Ficha usuario</li>
+                                <li class="breadcrumb-item active" aria-current="page"><?php echo $usuario->email ?></li>
                             </ol>
                         </nav>
                     </div>
@@ -53,7 +53,26 @@ $project_url = $decoded_json['project_url'];
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Nombre</h4>
+                                    <h4 class="card-title"><?php echo $usuario->nombre ?></h4>
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<?php echo $usuario->email ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="<?php echo $usuario->nombre ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nombre">Apellidos</label>
+                                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Nombre" value="<?php echo $usuario->apellidos ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="moneda">Moneda</label>
+                                            <input type="number" min="1" class="form-control" id="moneda" name="moneda" placeholder="Moneda" value="<?php echo $usuario->moneda ?>">
+                                        </div>
+                                        <input type="submit" class="btn btn-info btn-fw" value="Guardar">
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -30,6 +30,7 @@ class Controller {
      * @return void
      */
     public function muestraFichaUsuario(int $codUsuario) {
+        $usuario = Usuario::getUsuarioByCod($codUsuario);
         include 'view/admin/fichausuario.php';
     }
 }
