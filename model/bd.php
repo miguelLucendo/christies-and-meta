@@ -207,10 +207,11 @@ class BD
         $sql = "update usuario set ";
 
         foreach ($datos as $campo => $valor) {
-            $sql .= "set $campo = :$campo";
+            $sql .= "$campo = :$campo, ";
         }
+        $sql = substr($sql, 0, strlen($sql)-2);
 
-        $sql .= "where CodUsuario = :codUsuario;";
+        $sql .= " where CodUsuario = :codUsuario;";
 
         $stmt = $db->prepare($sql);
         $datos['codUsuario'] = $codUsuario;

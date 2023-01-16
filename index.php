@@ -67,6 +67,12 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $ac->getComentariosByPage((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'usuario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getUsuarioByCod((int)$array_ruta[2]);
+    } else if (
+        isset($array_ruta[1]) && $array_ruta[1] == 'usuario' &&
+        isset($array_ruta[2]) && $array_ruta[2] == "modificacion" &&
+        isset($array_ruta[3]) && is_numeric($array_ruta[3])
+    ) {
+        $ac->modificaUsuario((int)$array_ruta[3]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'producto' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getProductoByCod((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categoria' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {

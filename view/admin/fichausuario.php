@@ -54,7 +54,7 @@ $project_url = $decoded_json['project_url'];
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $usuario->nombre ?></h4>
-                                    <form action="">
+                                    <form method="POST" action="index.php/api/usuario/modificacion/<?php echo $usuario->codUsuario?>">
                                         <div class="form-group">
                                             <label for="email">Email</label>
                                             <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<?php echo $usuario->email ?>">
