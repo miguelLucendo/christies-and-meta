@@ -43,6 +43,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'comentarios') {
         $c = new Controller;
         $c->muestraComentarios();
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'usuario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
+        $c = new Controller;
+        $c->muestraFichaUsuario((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'ficha') {
         $c = new Controller;
         $c->muestraFicha();

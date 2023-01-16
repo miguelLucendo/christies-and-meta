@@ -1,4 +1,5 @@
 let URL_BASE = 'http://localhost/christies-and-meta/index.php/api/';
+let URL_BASE_REDIRECCION = 'http://localhost/christies-and-meta/index.php/admin/producto/';
 var paginaActual;
 
 window.onload = () => {
@@ -17,6 +18,10 @@ window.onload = () => {
                 fila.innerHTML = `<td>${producto.codProducto}</td><td>${producto.nombre}</td><td>${producto.precio}</td>`+
                 `<td>${producto.longitud}</td><td>${producto.latitud}</td><td>${producto.nombreCategoria}</td>`;
                 tbody.appendChild(fila);
+                fila.onclick = () => {
+                    window.location=URL_BASE_REDIRECCION+producto.codProducto;   
+                }
+                fila.style = 'cursor: pointer;';
             });
         }
     })
@@ -38,6 +43,10 @@ function siguiente() {
                     fila.innerHTML = `<td>${producto.codProducto}</td><td>${producto.nombre}</td><td>${producto.precio}</td>`+
                     `<td>${producto.longitud}</td><td>${producto.latitud}</td><td>${producto.nombreCategoria}</td>`;
                     tbody.appendChild(fila);
+                    fila.onclick = () => {
+                        window.location=URL_BASE_REDIRECCION+producto.codProducto;   
+                    }
+                    fila.style = 'cursor: pointer;';
                 });
             } else {
                 paginaActual--;
@@ -64,6 +73,10 @@ function anterior() {
                     fila.innerHTML = `<td>${producto.codProducto}</td><td>${producto.nombre}</td><td>${producto.precio}</td>`+
                     `<td>${producto.longitud}</td><td>${producto.latitud}</td><td>${producto.nombreCategoria}</td>`;
                     tbody.appendChild(fila);
+                    fila.onclick = () => {
+                        window.location=URL_BASE_REDIRECCION+producto.codProducto;   
+                    }
+                    fila.style = 'cursor: pointer;';
                 });
             } else {
                 paginaActual++;

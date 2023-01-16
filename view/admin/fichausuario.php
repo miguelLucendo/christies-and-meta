@@ -39,11 +39,11 @@ $project_url = $decoded_json['project_url'];
                 <div class="content-wrapper">
                     <!-- CABECERA PAGINA -->
                     <div class="page-header">
-                        <h3 class="page-title"> Ficha de ejemplo </h3>
+                        <h3 class="page-title"> Ficha de usuario </h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item" aria-current="page"><a href="index.php/admin/usuarios">Usuarios</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Ficha ejemplo</li>
+                                <li class="breadcrumb-item active" aria-current="page">Ficha usuario</li>
                             </ol>
                         </nav>
                     </div>

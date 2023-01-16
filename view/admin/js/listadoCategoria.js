@@ -1,4 +1,5 @@
 let URL_BASE = 'http://localhost/christies-and-meta/index.php/api/';
+let URL_BASE_REDIRECCION = 'http://localhost/christies-and-meta/index.php/admin/categoria/';
 var paginaActual;
 
 window.onload = () => {
@@ -17,6 +18,10 @@ window.onload = () => {
                 fila.innerHTML = `<td>${categoria.codCategoria}</td><td>${categoria.nombre}</td><td>${categoria.descripcion}</td>`+
                 `<td>${categoria.codCategoriaPadre}</td>`;
                 tbody.appendChild(fila);
+                fila.onclick = () => {
+                    window.location=URL_BASE_REDIRECCION+categoria.codCategoria;   
+                }
+                fila.style = 'cursor: pointer;';
             });
         }
     })
@@ -38,6 +43,10 @@ function siguiente() {
                     fila.innerHTML = `<td>${categoria.codCategoria}</td><td>${categoria.nombre}</td><td>${categoria.descripcion}</td>`+
                     `<td>${categoria.codCategoriaPadre}</td>`;
                     tbody.appendChild(fila);
+                    fila.onclick = () => {
+                        window.location=URL_BASE_REDIRECCION+categoria.codCategoria;   
+                    }
+                    fila.style = 'cursor: pointer;';
                 });
             } else {
                 paginaActual--;
@@ -59,11 +68,15 @@ function anterior() {
             if (categorias.length > 0) {
                 let tbody = document.querySelector('#tbody-categoria');
                 tbody.innerHTML = '';
-                categorias.forEach(producto => {
+                categorias.forEach(categoria => {
                     let fila = document.createElement('tr');
-                    fila.innerHTML = `<td>${producto.codProducto}</td><td>${producto.nombre}</td><td>${producto.precio}</td>`+
-                    `<td>${producto.longitud}</td><td>${producto.latitud}</td><td>${producto.nombreCategoria}</td>`;
+                    fila.innerHTML = `<td>${categoria.codCategoria}</td><td>${categoria.nombre}</td><td>${categoria.descripcion}</td>`+
+                    `<td>${categoria.codCategoriaPadre}</td>`;
                     tbody.appendChild(fila);
+                    fila.onclick = () => {
+                        window.location=URL_BASE_REDIRECCION+categoria.codCategoria;   
+                    }
+                    fila.style = 'cursor: pointer;';
                 });
             } else {
                 paginaActual++;

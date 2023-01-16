@@ -22,5 +22,14 @@ class Controller {
     }
     public function muestraComentarios() {
         include 'view/admin/comentarios.php';
+    }    
+    /**
+     * muestraFichaUsuario
+     *
+     * @param  int $codUsuario
+     * @return void
+     */
+    public function muestraFichaUsuario(int $codUsuario) {
+        include 'view/admin/fichausuario.php';
     }
 }
