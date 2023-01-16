@@ -23,4 +23,7 @@ class Controller {
     public function muestraCategorias() {
         include 'view/admin/categorias.php';
     }
+    public function muestraComentarios() {
+        include 'view/admin/comentarios.php';
+    }
 }

@@ -89,6 +89,14 @@
             </a>
         </li>
         <li class="nav-item menu-items">
+            <a class="nav-link" href="index.php/admin/comentarios">
+                <span class="menu-icon">
+                    <i class="mdi mdi-comment-text-outline"></i>
+                </span>
+                <span class="menu-title">Comentarios</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
             <a class="nav-link" href="index.php/admin/listado">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
