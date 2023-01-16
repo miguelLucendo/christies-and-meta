@@ -21,6 +21,15 @@ class Usuario
         $this->admin = $admin;
     }
 
+    public static function altaUsuario($email, $password, $nombre, $apellidos) {
+        (new BD)->altaUsuario($email, $password, $nombre, $apellidos);
+    }
+    public static function modificaUsuario($codUsuario, $datos) {
+        if (isset($datos['Contrasenya'])) {
+            $datos['Contrasenya'] = sha1($datos['Contrasenya']);
+        }
+        (new BD)->modificaUsuario($codUsuario, $datos);
+    }
     /**
      * getUsuarioByCod
      *

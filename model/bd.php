@@ -158,4 +158,69 @@ class BD
         $db = null;
         return $comentarios;
     }
+
+    // USUARIOS
+    public function altaUsuario($email, $password, $nombre, $apellidos) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "insert into usuario (Email, Contrasenya, Nombre, Apellidos) values (:email, :pass, :nombre, :apellidos);";
+        $stmt = $db->prepare($sql);
+        $resultado = $stmt->execute([
+            'email' => $email,
+            'pass' => $password,
+            'nombre' => $nombre,
+            'apellidos' => $apellidos,
+        ]);
+        $aux = false;
+        if ($resultado) {
+            $aux = true;
+        }
+        $db = null;
+        return $aux;
+
+    }
+    public function bajaUsuario($codUsuario) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "delete from usuario where CodUsuario = :codUsuario;";
+        $stmt = $db->prepare($sql);
+        $resultado = $stmt->execute(['codUsuario' => $codUsuario]);
+
+        $aux = false;
+        if ($resultado) {
+            $aux = true;
+        }
+        $db = null;
+        return $aux;
+    }    
+    /**
+     * Este metodo recibe un array con el codigo de usuario y un array con los datos a modificar
+     * en el siguiente formato: nombre => dato
+     *
+     * @param  array $datos
+     * @return void
+     * 
+     */
+    public function modificaUsuario($codUsuario, $datos) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "update usuario set ";
+
+        foreach ($datos as $campo => $valor) {
+            $sql .= "set $campo = :$campo";
+        }
+
+        $sql .= "where CodUsuario = :codUsuario;";
+
+        $stmt = $db->prepare($sql);
+        $datos['codUsuario'] = $codUsuario;
+        $resultado = $stmt->execute($datos);
+
+        $aux = false;
+        if ($resultado) {
+            $aux = true;
+        }
+        $db = null;
+        return $aux;
+    }
 }
