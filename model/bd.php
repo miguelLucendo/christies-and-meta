@@ -72,6 +72,7 @@ class BD
         $db = null;
         return $usuarios;
     }
+    // PRODUCTOS
     public function getProductoByCod($codProducto) {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
@@ -99,6 +100,29 @@ class BD
 
         $db = null;
         return $productos;
+    }
+    public function modificaProducto($codProducto, $datos) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "update producto set ";
+
+        foreach ($datos as $campo => $valor) {
+            $sql .= "$campo = :$campo, ";
+        }
+        $sql = substr($sql, 0, strlen($sql)-2);
+
+        $sql .= " where codProducto = :codProducto;";
+
+        $stmt = $db->prepare($sql);
+        $datos['codProducto'] = $codProducto;
+        $resultado = $stmt->execute($datos);
+
+        $aux = false;
+        if ($resultado) {
+            $aux = true;
+        }
+        $db = null;
+        return $aux;
     }
     // CATEGORIAS
     public function getCategoriaByCod($codCategoria) {

@@ -25,6 +25,51 @@ class Producto
         $this->nombreCategoria = $nombreCategoria;
     }
 
+    public static function modificaProducto($codProducto, $datos)
+    {
+        // Gestionamos la imagen para que bd solo tenga que insertar la ruta en la bbdd
+        if ($datos['img1']['size'] > 0) {
+            $temporal = $datos['img1']['tmp_name'];
+            $path = $_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto/img1.png";
+
+            if (!is_dir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto")) {
+                mkdir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto");
+            }
+            move_uploaded_file($temporal, $path);
+            $datos['img1'] = "producto/$codProducto/img1.png";
+        } else {
+            unset($datos['img1']);
+        }
+
+        if ($datos['img2']['size'] > 0) {
+            $temporal = $datos['img2']['tmp_name'];
+            $path = $_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto/img2.png";
+
+            if (!is_dir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto")) {
+                mkdir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto");
+            }
+            move_uploaded_file($temporal, $path);
+            $datos['img2'] = "producto/$codProducto/img2.png";
+        } else {
+            unset($datos['img2']);
+        }
+
+        if ($datos['img3']['size'] > 0) {
+            $temporal = $datos['img3']['tmp_name'];
+            $path = $_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto/img3.png";
+
+            if (!is_dir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto")) {
+                mkdir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/producto/$codProducto");
+            }
+            move_uploaded_file($temporal, $path);
+            $datos['img3'] = "producto/$codProducto/img3.png";
+        } else {
+            unset($datos['img3']);
+        }
+
+        (new BD)->modificaProducto($codProducto, $datos);
+    }
+
     public static function getProductoByCod($codProducto): Producto
     {
         $producto = (new BD)->getProductoByCod($codProducto);

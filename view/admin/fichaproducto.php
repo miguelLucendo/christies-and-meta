@@ -150,7 +150,7 @@ $project_url = $decoded_json['project_url'];
                                         </div>
                                         <div class="form-group">
                                             <label>Categoria</label>
-                                            <select name="codCategoriaPadre" class="js-example-basic-single" style="width:100%">
+                                            <select name="codCategoria" class="js-example-basic-single" style="width:100%">
                                                 <?php
 
                                                 foreach ($categorias as $categoriaAux) {

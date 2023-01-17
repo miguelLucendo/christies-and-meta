@@ -64,4 +64,20 @@ class ApiController
 
         header("location: $project_url" . "index.php/admin/categoria/$codCategoria");
     }
+    public function modificaProducto(int $codProducto)
+    {
+        $img1 = $_FILES['img1'];
+        $_POST['img1'] = $img1;
+        $img2 = $_FILES['img2'];
+        $_POST['img2'] = $img2;
+        $img3 = $_FILES['img3'];
+        $_POST['img3'] = $img3;
+        Producto::modificaProducto($codProducto, $_POST);
+
+        $config_json = file_get_contents('config.json');
+        $decoded_json = json_decode($config_json, true);
+        $project_url = $decoded_json['project_url'];
+
+        header("location: $project_url" . "index.php/admin/producto/$codProducto");
+    }
 }
