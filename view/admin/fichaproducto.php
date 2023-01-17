@@ -62,13 +62,116 @@ $project_url = $decoded_json['project_url'];
                                             <label for="nombre">Nombre</label>
                                             <input type="text" class="form-control" id="email" name="nombre" placeholder="nombre" value="<?php echo $producto->nombre ?>">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="descripcion">Descripción</label>
+                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="5"><?php echo $producto->descripcion ?>
+                                            </textarea>
+                                        </div>
 
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Imagen 1</label>
+                                                    <input type="file" name="img1" class="file-upload-default">
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled placeholder="Sube imagen">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-primary" type="button">Subir</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="<?php
+                                                            if ($producto->img1) {
+                                                                $ruta = $producto->img1;
+                                                                echo "view/img/$ruta";
+                                                            }
+                                                            ?>" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Imagen 2</label>
+                                                    <input type="file" name="img2" class="file-upload-default">
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled placeholder="Sube imagen">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-primary" type="button">Subir</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="<?php
+                                                            if ($producto->img2) {
+                                                                $ruta = $producto->img2;
+                                                                echo "view/img/$ruta";
+                                                            }
+                                                            ?>" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Imagen 3</label>
+                                                    <input type="file" name="img3" class="file-upload-default">
+                                                    <div class="input-group col-xs-12">
+                                                        <input type="text" class="form-control file-upload-info" disabled placeholder="Sube imagen">
+                                                        <span class="input-group-append">
+                                                            <button class="file-upload-browse btn btn-primary" type="button">Subir</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="<?php
+                                                            if ($producto->img3) {
+                                                                $ruta = $producto->img3;
+                                                                echo "view/img/$ruta";
+                                                            }
+                                                            ?>" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="latitud">Latitud</label>
+                                                    <input type="text" class="form-control" id="latitud" name="latitud" placeholder="Latitud" value="<?php echo $producto->latitud ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="longitud">Longitud</label>
+                                                    <input type="text" class="form-control" id="longitud" name="longitud" placeholder="Longitud" value="<?php echo $producto->longitud ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Categoria</label>
+                                            <select name="codCategoriaPadre" class="js-example-basic-single" style="width:100%">
+                                                <?php
+
+                                                foreach ($categorias as $categoriaAux) {
+                                                    $codigo = $categoriaAux->codCategoria;
+                                                    $nombre = $categoriaAux->nombre;
+
+                                                    if ($codigo == $producto->codCategoria) {
+                                                        echo "<option value='$codigo' selected>$nombre</option>";
+                                                    } else {
+                                                        echo "<option value='$codigo'>$nombre</option>";
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <input type="submit" class="btn btn-info btn-fw" value="Guardar">
                                             </div>
                                             <div class="col-md-10" style="display:none;">
-                                                <span class="text-info">Prodcucto actualizado con éxito</span>
+                                                <span class="text-info">Producto actualizado con éxito</span>
                                             </div>
                                         </div>
                                     </form>
