@@ -96,13 +96,5 @@
                 <span class="menu-title">Comentarios</span>
             </a>
         </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="index.php/admin/ficha">
-                <span class="menu-icon">
-                    <i class="mdi mdi-file"></i>
-                </span>
-                <span class="menu-title">Ficha ejemplo</span>
-            </a>
-        </li>
     </ul>
 </nav>

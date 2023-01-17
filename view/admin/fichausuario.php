@@ -7,6 +7,7 @@ $project_url = $decoded_json['project_url'];
 <html lang="en">
 
 <head>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <base href="<?php echo $project_url ?>">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -53,7 +54,15 @@ $project_url = $decoded_json['project_url'];
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title"><?php echo $usuario->nombre ?></h4>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h4 class="card-title"><?php echo $usuario->nombre ?></h4>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-danger btn-fw float-end" onclick="bajaUsuario(<?php echo $usuario->codUsuario ?>)">Dar de baja</button>
+                                        </div>
+                                    </div>
                                     <form method="POST" action="index.php/api/usuario/modificacion/<?php echo $usuario->codUsuario ?>">
                                         <div class="form-group">
                                             <label for="email">Email</label>
