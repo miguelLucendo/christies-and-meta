@@ -33,4 +33,8 @@ class Controller {
         $usuario = Usuario::getUsuarioByCod($codUsuario);
         include 'view/admin/fichausuario.php';
     }
+    public function muestraFichaCategoria(int $codCategoria) {
+        $usuario = Categoria::getCategoriaByCod($codCategoria);
+        include 'view/admin/fichacategoria.php';
+    }
 }
