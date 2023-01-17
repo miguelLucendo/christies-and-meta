@@ -69,7 +69,7 @@ $project_url = $decoded_json['project_url'];
                                         </div>
                                         <div class="form-group">
                                             <label for="moneda">Moneda</label>
-                                            <input type="number" min="1" class="form-control" id="moneda" name="moneda" placeholder="Moneda" value="<?php echo $usuario->moneda ?>">
+                                            <input type="number" min="1" step="0.0001" class="form-control" id="moneda" name="moneda" placeholder="Moneda" value="<?php echo $usuario->moneda ?>">
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2">
