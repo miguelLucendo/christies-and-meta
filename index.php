@@ -49,6 +49,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categoria' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $c = new Controller;
         $c->muestraFichaCategoria((int)$array_ruta[2]);
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'producto' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
+        $c = new Controller;
+        $c->muestraFichaProducto((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'ficha') {
         $c = new Controller;
         $c->muestraFicha();

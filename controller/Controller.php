@@ -41,4 +41,9 @@ class Controller {
         }
         include 'view/admin/fichacategoria.php';
     }
+    public function muestraFichaProducto(int $codProducto) {
+        $producto = Producto::getProductoByCod($codProducto);
+        $categorias = Categoria::getAllCategorias();
+        include 'view/admin/fichaproducto.php';
+    }
 }
