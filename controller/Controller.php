@@ -34,7 +34,11 @@ class Controller {
         include 'view/admin/fichausuario.php';
     }
     public function muestraFichaCategoria(int $codCategoria) {
-        $usuario = Categoria::getCategoriaByCod($codCategoria);
+        $categorias = Categoria::getAllCategorias();
+        $categoria = Categoria::getCategoriaByCod($codCategoria);
+        if ($categoria->codCategoriaPadre) {
+            $categoriaPadre = Categoria::getCategoriaByCod($categoria->codCategoriaPadre);
+        }
         include 'view/admin/fichacategoria.php';
     }
 }

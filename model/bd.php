@@ -100,6 +100,7 @@ class BD
         $db = null;
         return $productos;
     }
+    // CATEGORIAS
     public function getCategoriaByCod($codCategoria) {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
@@ -128,6 +129,15 @@ class BD
         $db = null;
         return $categorias;
     }
+    public function getAllCategorias() {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+        $sql = "select * from categoria;";
+        $categorias = $db->query($sql);
+
+        $db = null;
+        return $categorias;
+    }
+
     public function getComentarioByCod($codComentario) {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 

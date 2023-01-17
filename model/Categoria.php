@@ -47,4 +47,23 @@ class Categoria
 
         return $array;
     }
+    public static function getAllCategorias()
+    {
+        $categorias = (new BD)->getAllCategorias();
+
+        $array = [];
+
+        foreach ($categorias as $categoria) {
+            $categoria = new Categoria(
+                $categoria['CodCategoria'],
+                $categoria['Nombre'],
+                $categoria['Descripcion'],
+                $categoria['Imagen'],
+                $categoria['CodCategoriaPadre'],
+            );
+            $array[] = $categoria;
+        }
+
+        return $array;
+    }
 }
