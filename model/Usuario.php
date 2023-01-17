@@ -24,6 +24,12 @@ class Usuario
     public static function altaUsuario($email, $password, $nombre, $apellidos) {
         (new BD)->altaUsuario($email, $password, $nombre, $apellidos);
     }
+    public static function bajaUsuario($codUsuario) {
+        // Primero doy de baja los comentarios que escribió ese usuario y quito su id de las compras
+        (new BD)->bajaComentariosRelacionados($codUsuario);
+        (new BD)->bajaComprasRelacionadas($codUsuario);
+        (new BD)->bajaUsuario($codUsuario);
+    }
     public static function modificaUsuario($codUsuario, $datos) {
         if (isset($datos['Contrasenya'])) {
             $datos['Contrasenya'] = sha1($datos['Contrasenya']);

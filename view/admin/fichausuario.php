@@ -123,6 +123,7 @@ $project_url = $decoded_json['project_url'];
     <script src="view/template/assets/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
+    <script src="view/admin/js/botonesBaja.js"></script>
     <!-- End custom js for this page -->
 </body>
 

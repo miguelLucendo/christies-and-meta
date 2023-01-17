@@ -254,7 +254,35 @@ class BD
         }
         $db = null;
         return $aux;
-    }    
+    }
+    public function bajaComentariosRelacionados($codUsuario) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "delete from comentario where CodUsuario = :codUsuario;";
+        $stmt = $db->prepare($sql);
+        $resultado = $stmt->execute(['codUsuario' => $codUsuario]);
+
+        $aux = false;
+        if ($resultado) {
+            $aux = true;
+        }
+        $db = null;
+        return $aux;
+    }
+    public function bajaComprasRelacionadas($codUsuario) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "update compra set CodUsuario = null where CodUsuario = :codUsuario";
+        $stmt = $db->prepare($sql);
+        $resultado = $stmt->execute(['codUsuario' => $codUsuario]);
+
+        $aux = false;
+        if ($resultado) {
+            $aux = true;
+        }
+        $db = null;
+        return $aux;
+    }
     /**
      * Este metodo recibe un array con el codigo de usuario y un array con los datos a modificar
      * en el siguiente formato: nombre => dato

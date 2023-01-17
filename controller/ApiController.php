@@ -80,4 +80,7 @@ class ApiController
 
         header("location: $project_url" . "index.php/admin/producto/$codProducto");
     }
+    public function bajaUsuario(int $codUsuario) {
+        Usuario::bajaUsuario($codUsuario);
+    }
 }
