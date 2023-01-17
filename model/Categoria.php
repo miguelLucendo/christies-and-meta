@@ -16,6 +16,24 @@ class Categoria
         $this->codCategoriaPadre = $codCategoriaPadre;
     }
 
+    public static function modificaCategoria($codCategoria, $datos)
+    {
+        // Gestionamos la imagen para que bd solo tenga que insertar la ruta en la bbdd
+        if ($datos['imagen']['size'] > 0) {
+            $temporal = $datos['imagen']['tmp_name'];
+            $path = $_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria/img.png";
+
+            if (!is_dir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria")) {
+                mkdir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria");
+            }
+            move_uploaded_file($temporal, $path);
+            $datos['imagen'] = "categoria/$codCategoria/img.png";
+        } else {
+            unset($datos['imagen']);
+        }
+        (new BD)->modificaCategoria($codCategoria, $datos);
+    }
+
     public static function getCategoriaByCod($codCategoria): Categoria
     {
         $categoria = (new BD)->getCategoriaByCod($codCategoria);

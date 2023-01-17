@@ -56,7 +56,7 @@ $project_url = $decoded_json['project_url'];
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $categoria->nombre ?></h4>
-                                    <form method="POST" action="index.php/api/categoria/modificacion/<?php echo $categoria->codCategoria ?>">
+                                    <form method="POST" enctype="multipart/form-data" action="index.php/api/categoria/modificacion/<?php echo $categoria->codCategoria ?>">
 
                                         <div class="form-group">
                                             <label for="nombre">Nombre</label>
@@ -70,7 +70,7 @@ $project_url = $decoded_json['project_url'];
 
                                         <div class="form-group">
                                             <label>Imagen</label>
-                                            <input type="file" name="img[]" class="file-upload-default">
+                                            <input type="file" name="imagen" class="file-upload-default">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info" disabled placeholder="Sube imagen">
                                                 <span class="input-group-append">
@@ -90,7 +90,7 @@ $project_url = $decoded_json['project_url'];
                                         </div>
                                         <div class="form-group">
                                             <label>Categoria padre</label>
-                                            <select class="js-example-basic-single" style="width:100%">
+                                            <select name="codCategoriaPadre" class="js-example-basic-single" style="width:100%">
                                                 <?php
                                                 if ($categoriaPadre) {
                                                     echo "<option value='0' selected>-- Sin Categoria --</option>";
@@ -98,9 +98,13 @@ $project_url = $decoded_json['project_url'];
                                                     echo "<option value='0'>-- Sin Categoria --</option>";
                                                 }
 
-                                                foreach ($categorias as $categoria) {
-                                                    $codigo = $categoria->codCategoria;
-                                                    $nombre = $categoria->nombre;
+                                                foreach ($categorias as $categoriaAux) {
+                                                    $codigo = $categoriaAux->codCategoria;
+                                                    $nombre = $categoriaAux->nombre;
+
+                                                    if ($categoria->codCategoria == $codigo) {
+                                                        continue;
+                                                    }
 
                                                     if ($categoriaPadre) {
                                                         if ($codigo == $categoriaPadre->codCategoria) {

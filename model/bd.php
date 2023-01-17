@@ -137,7 +137,35 @@ class BD
         $db = null;
         return $categorias;
     }
+    public function modificaCategoria($codCategoria, $datos) {
+        // si la categoria padre es 0 significa que no la ha elegido
+        if ($datos['codCategoriaPadre'] == 0) {
+            $datos['codCategoriaPadre'] = null;
+        }
 
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "update categoria set ";
+
+        foreach ($datos as $campo => $valor) {
+            $sql .= "$campo = :$campo, ";
+        }
+        $sql = substr($sql, 0, strlen($sql)-2);
+
+        $sql .= " where CodCategoria = :codCategoria;";
+
+        $stmt = $db->prepare($sql);
+        $datos['codCategoria'] = $codCategoria;
+        $resultado = $stmt->execute($datos);
+
+        $aux = false;
+        if ($resultado) {
+            $aux = true;
+        }
+        $db = null;
+        return $aux;
+    }
+    // Comentarios
     public function getComentarioByCod($codComentario) {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 

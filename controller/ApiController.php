@@ -51,4 +51,17 @@ class ApiController
 
         header("location: $project_url" . "index.php/admin/usuario/$codUsuario");
     }
+    public function modificaCategoria(int $codCategoria)
+    {
+        $mega = 1024 * 1024;
+        $imagen = $_FILES['imagen'];
+        $_POST['imagen'] = $imagen;
+        Categoria::modificaCategoria($codCategoria, $_POST);
+
+        $config_json = file_get_contents('config.json');
+        $decoded_json = json_decode($config_json, true);
+        $project_url = $decoded_json['project_url'];
+
+        header("location: $project_url" . "index.php/admin/categoria/$codCategoria");
+    }
 }
