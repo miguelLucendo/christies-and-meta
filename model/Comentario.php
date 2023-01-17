@@ -21,6 +21,9 @@ class Comentario
         $this->nombreProducto = $nombreProducto;
     }
 
+    public static function altaComentario($datos) {
+        (new BD)->altaComentario($datos);
+    }
     public static function getComentarioByCod($codComentario): Comentario
     {
         $comentario = (new BD)->getComentarioByCod($codComentario);

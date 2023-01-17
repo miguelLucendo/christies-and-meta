@@ -189,7 +189,32 @@ class BD
         $db = null;
         return $aux;
     }
-    // Comentarios
+    //TODO Comentarios
+    public function altaComentario($datos) {
+        // $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "insert into comentario (";
+
+        foreach ($datos as $campo => $valor) {
+            $sql .= "$campo, ";
+        }
+        $sql = substr($sql, 0, strlen($sql)-2).') values (';
+        foreach ($datos as $campo => $valor) {
+            $sql .= ":$campo, ";
+        }
+        $sql = substr($sql, 0, strlen($sql)-2).')';
+        var_dump($sql);
+        // $stmt = $db->prepare($sql);
+
+        // $resultado = $stmt->execute($datos);
+
+        // $aux = false;
+        // if ($resultado) {
+        //     $aux = true;
+        // }
+        // $db = null;
+        // return $aux;
+    }
     public function getComentarioByCod($codComentario) {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
