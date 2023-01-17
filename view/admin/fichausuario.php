@@ -54,7 +54,7 @@ $project_url = $decoded_json['project_url'];
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $usuario->nombre ?></h4>
-                                    <form method="POST" action="index.php/api/usuario/modificacion/<?php echo $usuario->codUsuario?>">
+                                    <form method="POST" action="index.php/api/usuario/modificacion/<?php echo $usuario->codUsuario ?>">
                                         <div class="form-group">
                                             <label for="email">Email</label>
                                             <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<?php echo $usuario->email ?>">
@@ -71,7 +71,14 @@ $project_url = $decoded_json['project_url'];
                                             <label for="moneda">Moneda</label>
                                             <input type="number" min="1" class="form-control" id="moneda" name="moneda" placeholder="Moneda" value="<?php echo $usuario->moneda ?>">
                                         </div>
-                                        <input type="submit" class="btn btn-info btn-fw" value="Guardar">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <input type="submit" class="btn btn-info btn-fw" value="Guardar">
+                                            </div>
+                                            <div class="col-md-10" style="display:none;">
+                                                <span class="text-info">Usuario actualizado con éxito</span>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
