@@ -55,7 +55,15 @@ $project_url = $decoded_json['project_url'];
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title"><?php echo $producto->nombre ?></h4>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h4 class="card-title"><?php echo $producto->nombre ?></h4>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-danger btn-fw float-end" onclick="bajaProducto(<?php echo $producto->codProducto ?>)">Dar de baja</button>
+                                        </div>
+                                    </div>
                                     <form method="POST" enctype="multipart/form-data" action="index.php/api/producto/modificacion/<?php echo $producto->codProducto ?>">
 
                                         <div class="form-group">
