@@ -5,6 +5,7 @@ session_start();
 require_once 'controller/AuthController.php';
 require_once 'controller/Controller.php';
 require_once 'controller/ApiController.php';
+require_once 'controller/FrontController.php';
 
 //Ruta de la home
 $config_json = file_get_contents('config.json');
@@ -101,7 +102,12 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'comentario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getComentarioByCod((int)$array_ruta[2]);
     }
-} else { // No ha encontrado la ruta a la que quiere acceder el usuario
-    $c = new Controller;
-    $c->carga404();
+} else { // O quiere entrar al frontend de la web o no existe la ruta a la que quiere acceder
+    $fc = new FrontController;
+    if (isset($array_ruta[0]) && $array_ruta[0] == 'home') {
+        $fc->muestraHome();
+    } else { // No ha encontrado la ruta a la que quiere acceder el usuario
+        $c = new Controller;
+        $c->carga404();
+    }
 }
