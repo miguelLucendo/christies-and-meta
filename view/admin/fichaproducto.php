@@ -68,12 +68,11 @@ $project_url = $decoded_json['project_url'];
 
                                         <div class="form-group">
                                             <label for="nombre">Nombre</label>
-                                            <input type="text" class="form-control" id="email" name="nombre" placeholder="nombre" value="<?php echo $producto->nombre ?>">
+                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" value="<?php echo $producto->nombre ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="descripcion">Descripción</label>
-                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="5"><?php echo $producto->descripcion ?>
-                                            </textarea>
+                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="5"><?php echo $producto->descripcion ?></textarea>
                                         </div>
 
                                         <div class="row">
@@ -214,7 +213,7 @@ $project_url = $decoded_json['project_url'];
     <!-- inject:js -->
     <script src="view/template/assets/js/off-canvas.js"></script>
     <script src="view/template/assets/js/hoverable-collapse.js"></script>
-    <script src="view/template/assets/js/misc.js"></script>
+    <!-- <script src="view/template/assets/js/misc.js"></script> -->
     <script src="view/template/assets/js/settings.js"></script>
     <script src="view/template/assets/js/todolist.js"></script>
     <!-- endinject -->
@@ -222,6 +221,8 @@ $project_url = $decoded_json['project_url'];
     <script src="view/template/assets/js/file-upload.js"></script>
     <script src="view/template/assets/js/typeahead.js"></script>
     <script src="view/template/assets/js/select2.js"></script>
+
+    <script src="view/admin/js/comprobacionFormularioProducto.js"></script>
     <!-- End custom js for this page -->
 </body>
 
