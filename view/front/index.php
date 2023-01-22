@@ -1,0 +1,229 @@
+<?php
+$config_json = file_get_contents('config.json');
+$decoded_json = json_decode($config_json, true);
+$project_url = $decoded_json['project_url'];
+?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <base href="<?php echo $project_url ?>">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christie's & Meta</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- slider -->
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- mi css -->
+    <link rel="stylesheet" href="view/front/css/style.css">
+</head>
+
+<body>
+    <!-- Empieza navbar -->
+    <header>
+        <div>
+            <div class="container py-4">
+                <nav class="navbar navbar-expand-lg static-top">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="christies-meta-logo-transparente.png" alt="..." height="36">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn my-2 my-sm-0" type="submit">Login</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container py-5">
+            <div id="msg-bienvenida" class="text-center my-4">Bienvenido a Christie's & Meta, una tienda relacionada con el metaverso y todas sus posibilidades.</div>
+            <!-- slider -->
+            <div class="swiffy-slider slider-item-show3 slider-item-reveal slider-nav-dark slider-nav-outside-expand">
+                <ul class="slider-container py-4" id="slider2">
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card shadow h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body d-flex flex-column flex-md-row">
+                                <div class="flex-grow-1">
+                                    <strong>Nombre</strong>
+                                    <p class="card-text">Categoria</p>
+                                </div>
+                                <div class="px-md-2">Precio</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+                <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+            </div>
+            <!-- fin slider -->
+
+            <!-- searchbar -->
+            <div class="row height d-flex justify-content-center align-items-center mt-5" id="search-bar">
+                <div class="col-md-8">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="¿Buscas algo?">
+                        <button class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
