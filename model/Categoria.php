@@ -84,4 +84,21 @@ class Categoria
 
         return $array;
     }
+    public static function getCategoriasByName($busqueda) {
+        $categorias = (new BD)->getCategoriasByName($busqueda);
+
+        $array = [];
+
+        foreach ($categorias as $categoria) {
+            $arr_aux = [];
+            $arr_aux['CodCategoria'] = $categoria['CodCategoria'];
+            $arr_aux['Nombre'] = $categoria['Nombre'];
+            $arr_aux['Descripcion'] = $categoria['Descripcion'];
+            $arr_aux['NombreCategoriaPadre'] = $categoria['NombreCategoriaPadre'];
+
+            $array[] = $arr_aux;
+        }
+
+        return $array;
+    }
 }

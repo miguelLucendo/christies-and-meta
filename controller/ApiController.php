@@ -88,15 +88,15 @@ class ApiController
     {
         switch ($filtro) {
             case 'nombre':
-                $resultado = Categoria::getCategoriasByName($filtro, $_POST['busqueda']);
+                $resultado = Categoria::getCategoriasByName($_POST['busqueda']);
                 break;
             case 'descripcion':
-                $resultado = Categoria::getCategoriasByDescripcion($filtro, $_POST['busqueda']);
+                // $resultado = Categoria::getCategoriasByDescripcion($filtro, $_POST['busqueda']);
                 break;
             case 'puntuacion':
-                $resultado = Categoria::getCategoriasByPuntuacion($filtro, $_POST['busqueda']);
+                // $resultado = Categoria::getCategoriasByPuntuacion($filtro, $_POST['busqueda']);
                 break;
         }
-        echo 'asd';
+        echo json_encode($resultado);
     }
 }

@@ -57,7 +57,7 @@ $project_url = $decoded_json['project_url'];
                 </div>
             </div>
             <!-- listado resultados -->
-            <div class="row resultado-busqueda"></div>
+            <div class="row resultado-busqueda mt-5"></div>
         </div>
         <footer>
 

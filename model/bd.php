@@ -79,7 +79,8 @@ class BD
         $db = null;
         return $aux;
     }
-    public function getUsuariosByPage($indicePagina) {
+    public function getUsuariosByPage($indicePagina)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $indicePagina = ($indicePagina * 10) - 10;
@@ -91,7 +92,8 @@ class BD
         return $usuarios;
     }
     // PRODUCTOS
-    public function getProductoByCod($codProducto) {
+    public function getProductoByCod($codProducto)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = 'select p.*, c.Nombre as NombreCategoria from producto as p inner join categoria as c on p.CodCategoria = c.CodCategoria where p.CodProducto = :cod;';
@@ -108,7 +110,8 @@ class BD
         $db = null;
         return $aux;
     }
-    public function getProductosByPage($indicePagina) {
+    public function getProductosByPage($indicePagina)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $indicePagina = ($indicePagina * 10) - 10;
@@ -119,7 +122,8 @@ class BD
         $db = null;
         return $productos;
     }
-    public function modificaProducto($codProducto, $datos) {
+    public function modificaProducto($codProducto, $datos)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "update producto set ";
@@ -127,7 +131,7 @@ class BD
         foreach ($datos as $campo => $valor) {
             $sql .= "$campo = :$campo, ";
         }
-        $sql = substr($sql, 0, strlen($sql)-2);
+        $sql = substr($sql, 0, strlen($sql) - 2);
 
         $sql .= " where codProducto = :codProducto;";
 
@@ -143,7 +147,8 @@ class BD
         return $aux;
     }
     // CATEGORIAS
-    public function getCategoriaByCod($codCategoria) {
+    public function getCategoriaByCod($codCategoria)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = 'select * from categoria where CodCategoria = :cod';
@@ -160,7 +165,8 @@ class BD
         $db = null;
         return $aux;
     }
-    public function getCategoriasByPage($indicePagina) {
+    public function getCategoriasByPage($indicePagina)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $indicePagina = ($indicePagina * 10) - 10;
@@ -171,7 +177,8 @@ class BD
         $db = null;
         return $categorias;
     }
-    public function getAllCategorias() {
+    public function getAllCategorias()
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
         $sql = "select * from categoria;";
         $categorias = $db->query($sql);
@@ -179,7 +186,8 @@ class BD
         $db = null;
         return $categorias;
     }
-    public function modificaCategoria($codCategoria, $datos) {
+    public function modificaCategoria($codCategoria, $datos)
+    {
         // si la categoria padre es 0 significa que no la ha elegido
         if ($datos['codCategoriaPadre'] == 0) {
             $datos['codCategoriaPadre'] = null;
@@ -192,7 +200,7 @@ class BD
         foreach ($datos as $campo => $valor) {
             $sql .= "$campo = :$campo, ";
         }
-        $sql = substr($sql, 0, strlen($sql)-2);
+        $sql = substr($sql, 0, strlen($sql) - 2);
 
         $sql .= " where CodCategoria = :codCategoria;";
 
@@ -207,8 +215,19 @@ class BD
         $db = null;
         return $aux;
     }
+    public function getCategoriasByName($filtro)
+    {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "select c.CodCategoria, c.Nombre, c.Descripcion, c2.Nombre as NombreCategoriaPadre from categoria c left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria where c.Nombre LIKE '%$filtro%'";
+        
+        $categorias = $db->query($sql);
+        $db = null;
+        return $categorias;
+    }
     //TODO Comentarios
-    public function altaComentario($datos) {
+    public function altaComentario($datos)
+    {
         // $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "insert into comentario (";
@@ -216,11 +235,11 @@ class BD
         foreach ($datos as $campo => $valor) {
             $sql .= "$campo, ";
         }
-        $sql = substr($sql, 0, strlen($sql)-2).') values (';
+        $sql = substr($sql, 0, strlen($sql) - 2) . ') values (';
         foreach ($datos as $campo => $valor) {
             $sql .= ":$campo, ";
         }
-        $sql = substr($sql, 0, strlen($sql)-2).')';
+        $sql = substr($sql, 0, strlen($sql) - 2) . ')';
         var_dump($sql);
         // $stmt = $db->prepare($sql);
 
@@ -233,7 +252,8 @@ class BD
         // $db = null;
         // return $aux;
     }
-    public function getComentarioByCod($codComentario) {
+    public function getComentarioByCod($codComentario)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = 'select * from comentario where CodComentario = :cod';
@@ -250,14 +270,15 @@ class BD
         $db = null;
         return $aux;
     }
-    public function getComentariosByPage($indicePagina) {
+    public function getComentariosByPage($indicePagina)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $indicePagina = ($indicePagina * 10) - 10;
 
-        $sql = "select c.*, u.Email, p.Nombre from comentario c inner join usuario u ".
-        "on c.CodUsuario = u.CodUsuario inner join producto p on c.CodProducto = p.CodProducto".
-        " order by CodComentario ASC limit $indicePagina,10";
+        $sql = "select c.*, u.Email, p.Nombre from comentario c inner join usuario u " .
+            "on c.CodUsuario = u.CodUsuario inner join producto p on c.CodProducto = p.CodProducto" .
+            " order by CodComentario ASC limit $indicePagina,10";
         $comentarios = $db->query($sql);
 
         $db = null;
@@ -265,7 +286,8 @@ class BD
     }
 
     // USUARIOS
-    public function altaUsuario($email, $password, $nombre, $apellidos) {
+    public function altaUsuario($email, $password, $nombre, $apellidos)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "insert into usuario (Email, Contrasenya, Nombre, Apellidos) values (:email, :pass, :nombre, :apellidos);";
@@ -282,9 +304,9 @@ class BD
         }
         $db = null;
         return $aux;
-
     }
-    public function bajaUsuario($codUsuario) {
+    public function bajaUsuario($codUsuario)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "delete from usuario where CodUsuario = :codUsuario;";
@@ -298,7 +320,8 @@ class BD
         $db = null;
         return $aux;
     }
-    public function bajaComentariosRelacionados($codUsuario) {
+    public function bajaComentariosRelacionados($codUsuario)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "delete from comentario where CodUsuario = :codUsuario;";
@@ -312,7 +335,8 @@ class BD
         $db = null;
         return $aux;
     }
-    public function bajaComprasRelacionadas($codUsuario) {
+    public function bajaComprasRelacionadas($codUsuario)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "update compra set CodUsuario = null where CodUsuario = :codUsuario";
@@ -334,7 +358,8 @@ class BD
      * @return void
      * 
      */
-    public function modificaUsuario($codUsuario, $datos) {
+    public function modificaUsuario($codUsuario, $datos)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "update usuario set ";
@@ -342,7 +367,7 @@ class BD
         foreach ($datos as $campo => $valor) {
             $sql .= "$campo = :$campo, ";
         }
-        $sql = substr($sql, 0, strlen($sql)-2);
+        $sql = substr($sql, 0, strlen($sql) - 2);
 
         $sql .= " where CodUsuario = :codUsuario;";
 
