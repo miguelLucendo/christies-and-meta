@@ -109,7 +109,8 @@ class ApiController
     public function getProductosSlider() {
         // devuelve productos en función de si está autenticado el usuario o no
         if (isset($_SESSION['autenticado_front'])) {
-
+            // Le devuelve 10 productos en los que ha comentado más recientemente
+            echo json_encode(Producto::getProductosSliderLogin($_SESSION['codUsuario']));
         } else {
             // Le devuelve los 10 productos más populares
             echo json_encode(Producto::getProductosSliderNormal());

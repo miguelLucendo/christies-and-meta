@@ -150,9 +150,17 @@ class BD
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "SELECT pp.Nombre, pp.Precio, pp.Img1, c.Nombre as NombreCategoria FROM productopopularidad pp inner join categoria c on pp.CodCategoria = c.CodCategoria ORDER BY PopularidadTotal, PopularidadCompras DESC LIMIT 10;";
-        $categorias = $db->query($sql);
+        $productos = $db->query($sql);
         $db = null;
-        return $categorias;
+        return $productos;
+    }
+    public function getProductosSliderLogin(int $codUsuario) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "SELECT p.Nombre, p.Precio, p.Img1, ca.Nombre FROM comentario co right JOIN producto p on co.CodProducto = p.CodProducto left join categoria ca on p.CodCategoria = ca.CodCategoria inner join usuario u on co.CodUsuario = u.CodUsuario where u.CodUsuario = 4 order by co.Fecha DESC;";
+        $productos = $db->query($sql);
+        $db = null;
+        return $productos;
     }
     // CATEGORIAS
     public function getCategoriaByCod($codCategoria)
