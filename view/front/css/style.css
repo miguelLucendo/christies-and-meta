@@ -42,3 +42,12 @@ header {
     width: 110px;
     background: blue;
 }
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #42248A !important;
+    border-color: #42248A !important;
+}
+.btn-primary:hover {
+    background-color: #9552AF !important;
+    border-color: #9552AF !important;
+}
