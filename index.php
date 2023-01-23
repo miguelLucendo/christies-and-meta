@@ -111,6 +111,8 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $ac->frontendLogin();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'login' && isset($array_ruta[1]) && $array_ruta[1] == 'process') {
         $ac->processFrontendLogin();
+    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'register') {
+        $ac->frontendRegister();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'categorias') {
         $fc->muestraCategorias();
     } else { // No ha encontrado la ruta a la que quiere acceder el usuario
