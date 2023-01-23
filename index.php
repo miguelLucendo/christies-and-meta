@@ -106,6 +106,8 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     $fc = new FrontController;
     if (isset($array_ruta[0]) && $array_ruta[0] == 'home') {
         $fc->muestraHome();
+    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'login') {
+        $fc->muestraLogin();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'categorias') {
         $fc->muestraCategorias();
     } else { // No ha encontrado la ruta a la que quiere acceder el usuario

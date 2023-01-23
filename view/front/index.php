@@ -184,6 +184,9 @@ $project_url = $decoded_json['project_url'];
     <footer>
 
     </footer>
+
+    <!-- js -->
+    <script src="view/front/js/navbar.js"></script>
 </body>
 
 </html>
