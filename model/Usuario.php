@@ -56,6 +56,10 @@ class Usuario
             $usuario['Admin']
         );
     }
+    public static function getCodByUser($user) {
+        $cod = (new BD)->getCodByUser($user);
+        return $cod;
+    }
     public static function getUsuariosByPage(int $indicePagina)
     {
         $usuarios = (new BD)->getUsuariosByPage($indicePagina);

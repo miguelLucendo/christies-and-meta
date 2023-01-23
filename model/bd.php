@@ -79,6 +79,23 @@ class BD
         $db = null;
         return $aux;
     }
+    public function getCodByUser($user)
+    {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "select CodUsuario from usuario where Email = :email";
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute(['email' => $user]);
+        $aux = '';
+        foreach ($stmt as $usuario) {
+            $aux = $usuario['CodUsuario'];
+            break;
+        }
+        $stmt->closeCursor();
+        $db = null;
+        return $aux;
+    }
     public function getUsuariosByPage($indicePagina)
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
@@ -146,7 +163,8 @@ class BD
         $db = null;
         return $aux;
     }
-    public function getProductosSliderNormal() {
+    public function getProductosSliderNormal()
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "SELECT pp.Nombre, pp.Precio, pp.Img1, c.Nombre as NombreCategoria FROM productopopularidad pp inner join categoria c on pp.CodCategoria = c.CodCategoria ORDER BY PopularidadTotal, PopularidadCompras DESC LIMIT 10;";
@@ -154,10 +172,11 @@ class BD
         $db = null;
         return $productos;
     }
-    public function getProductosSliderLogin(int $codUsuario) {
+    public function getProductosSliderLogin(int $codUsuario)
+    {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = "SELECT p.Nombre, p.Precio, p.Img1, ca.Nombre FROM comentario co right JOIN producto p on co.CodProducto = p.CodProducto left join categoria ca on p.CodCategoria = ca.CodCategoria inner join usuario u on co.CodUsuario = u.CodUsuario where u.CodUsuario = 4 order by co.Fecha DESC;";
+        $sql = "SELECT p.Nombre, p.Precio, p.Img1, ca.Nombre as NombreCategoria FROM comentario co right JOIN producto p on co.CodProducto = p.CodProducto left join categoria ca on p.CodCategoria = ca.CodCategoria inner join usuario u on co.CodUsuario = u.CodUsuario where u.CodUsuario = 4 order by co.Fecha DESC LIMIT 10;";
         $productos = $db->query($sql);
         $db = null;
         return $productos;
@@ -236,7 +255,7 @@ class BD
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "select c.CodCategoria, c.Nombre, c.Descripcion, c2.Nombre as NombreCategoriaPadre from categoria c left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria where c.Nombre LIKE '%$filtro%'";
-        
+
         $categorias = $db->query($sql);
         $db = null;
         return $categorias;
@@ -246,7 +265,7 @@ class BD
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "select c.CodCategoria, c.Nombre, c.Descripcion, c2.Nombre as NombreCategoriaPadre from categoria c left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria where c.Descripcion LIKE '%$filtro%'";
-        
+
         $categorias = $db->query($sql);
         $db = null;
         return $categorias;
@@ -256,7 +275,7 @@ class BD
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
         $sql = "SELECT c.CodCategoria, c.Nombre, c.Descripcion, c2.Nombre as NombreCategoriaPadre, ifnull(sum(pp.PopularidadTotal),0) as PopularidadTotal FROM productopopularidad pp right join categoria c on pp.CodCategoria = c.CodCategoria left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria group by c.CodCategoria having ifnull(sum(pp.PopularidadTotal),0) >= $filtro;";
-        
+
         $categorias = $db->query($sql);
         $db = null;
         return $categorias;

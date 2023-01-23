@@ -79,7 +79,7 @@ class AuthController
 
             if ((new BD)->frontendLogin($_POST['user'], $_POST['pass'])) {
                 $_SESSION['autenticado_front'] = true;
-
+                $_SESSION['codUsuario'] = Usuario::getCodByUser($_POST['user']);
 
 
                 header("location: $project_url" . "index.php/home");
