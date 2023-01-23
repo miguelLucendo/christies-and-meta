@@ -113,4 +113,21 @@ class Producto
 
         return $array;
     }
+    public static function getProductosSliderNormal() {
+        $productos = (new BD)->getProductosSliderNormal();
+
+        $array = [];
+
+        foreach ($productos as $producto) {
+            $arr_aux = [];
+
+            $arr_aux['Nombre'] = $producto['Nombre'];
+            $arr_aux['Precio'] = $producto['Precio'];
+            $arr_aux['Img1'] = $producto['Img1'];
+            $arr_aux['NombreCategoria'] = $producto['NombreCategoria'];
+
+            $array[] = $arr_aux;
+        }
+        return $array;
+    }
 }

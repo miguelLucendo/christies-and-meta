@@ -106,4 +106,13 @@ class ApiController
             echo '';
         }
     }
+    public function getProductosSlider() {
+        // devuelve productos en función de si está autenticado el usuario o no
+        if (isset($_SESSION['autenticado_front'])) {
+
+        } else {
+            // Le devuelve los 10 productos más populares
+            echo json_encode(Producto::getProductosSliderNormal());
+        }
+    }
 }

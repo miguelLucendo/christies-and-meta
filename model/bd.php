@@ -146,6 +146,14 @@ class BD
         $db = null;
         return $aux;
     }
+    public function getProductosSliderNormal() {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "SELECT pp.Nombre, pp.Precio, pp.Img1, c.Nombre as NombreCategoria FROM productopopularidad pp inner join categoria c on pp.CodCategoria = c.CodCategoria ORDER BY PopularidadTotal, PopularidadCompras DESC LIMIT 10;";
+        $categorias = $db->query($sql);
+        $db = null;
+        return $categorias;
+    }
     // CATEGORIAS
     public function getCategoriaByCod($codCategoria)
     {

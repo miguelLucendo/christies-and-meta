@@ -12,6 +12,8 @@ $project_url = $decoded_json['project_url'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christie's & Meta</title>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -36,132 +38,6 @@ $project_url = $decoded_json['project_url'];
             <!-- slider -->
             <div class="swiffy-slider slider-item-show3 slider-item-reveal slider-nav-dark slider-nav-outside-expand">
                 <ul class="slider-container py-4" id="slider2">
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card shadow h-100">
-                            <div class="ratio ratio-1x1">
-                                <img src="view/front/img/default-placeholder-gris.png" class="card-img-top" loading="lazy" alt="...">
-                            </div>
-                            <div class="card-body d-flex flex-column flex-md-row">
-                                <div class="flex-grow-1">
-                                    <strong>Nombre</strong>
-                                    <p class="card-text">Categoria</p>
-                                </div>
-                                <div class="px-md-2">Precio</div>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
 
                 <button type="button" class="slider-nav" aria-label="Go to previous"></button>
@@ -187,6 +63,7 @@ $project_url = $decoded_json['project_url'];
 
     <!-- js -->
     <script src="view/front/js/navbar.js"></script>
+    <script src="view/front/js/rellenaSlider.js"></script>
 </body>
 
 </html>
