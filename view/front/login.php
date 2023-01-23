@@ -35,20 +35,20 @@ $project_url = $decoded_json['project_url'];
 
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                 <p class="text-white-50 mb-5">Por favor introduce to usuario y contraseña</p>
+                                <form action="index.php/login/process" method="POST">
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="email" id="typeEmailX" name="user" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Email</label>
+                                    </div>
 
-                                <div class="form-outline form-white mb-4">
-                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                    <label class="form-label" for="typeEmailX">Email</label>
-                                </div>
-
-                                <div class="form-outline form-white mb-4">
-                                    <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                    <label class="form-label" for="typePasswordX">Contraseña</label>
-                                </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="password" id="typePasswordX" name="pass" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typePasswordX">Contraseña</label>
+                                    </div>
 
 
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                </form>
 
                             </div>
 

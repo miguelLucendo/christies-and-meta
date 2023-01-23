@@ -44,6 +44,24 @@ class BD
         $db = null;
         return false;
     }
+    public function frontendLogin(string $user, string $pass): bool
+    {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = 'select * from usuario where Email = :user and Contrasenya = sha1(:pass)';
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute(array('user' => $user, 'pass' => $pass));
+
+        if ($stmt->rowCount() === 1) {
+            $stmt->closeCursor();
+            $db = null;
+            return true;
+        }
+        $stmt->closeCursor();
+        $db = null;
+        return false;
+    }
     public function getUsuarioByCod($codUsuario)
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);

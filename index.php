@@ -104,10 +104,13 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     }
 } else { // O quiere entrar al frontend de la web o no existe la ruta a la que quiere acceder
     $fc = new FrontController;
+    $ac = new AuthController;
     if (isset($array_ruta[0]) && $array_ruta[0] == 'home') {
         $fc->muestraHome();
-    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'login') {
-        $fc->muestraLogin();
+    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'login' && !isset($array_ruta[1])) {
+        $ac->frontendLogin();
+    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'login' && isset($array_ruta[1]) && $array_ruta[1] == 'process') {
+        $ac->processFrontendLogin();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'categorias') {
         $fc->muestraCategorias();
     } else { // No ha encontrado la ruta a la que quiere acceder el usuario
