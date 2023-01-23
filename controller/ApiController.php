@@ -91,12 +91,19 @@ class ApiController
                 $resultado = Categoria::getCategoriasByName($_POST['busqueda']);
                 break;
             case 'descripcion':
-                // $resultado = Categoria::getCategoriasByDescripcion($filtro, $_POST['busqueda']);
+                $resultado = Categoria::getCategoriasByDescripcion($_POST['busqueda']);
                 break;
             case 'puntuacion':
-                // $resultado = Categoria::getCategoriasByPuntuacion($filtro, $_POST['busqueda']);
+                if (!is_numeric($_POST['busqueda'])) {
+                    break;
+                }
+                $resultado = Categoria::getCategoriasByPuntuacion($_POST['busqueda']);
                 break;
         }
-        echo json_encode($resultado);
+        if (isset($resultado)) {
+            echo json_encode($resultado);
+        } else {
+            echo '';
+        }
     }
 }

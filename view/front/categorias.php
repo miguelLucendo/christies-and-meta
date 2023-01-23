@@ -45,7 +45,7 @@ $project_url = $decoded_json['project_url'];
                     <select name="filtro" id="filtro">
                         <option value="nombre">Nombre contiene </option>
                         <option value="descripcion">Descripcion contiene </option>
-                        <option value="puntuacion">Puntuacion > </option>
+                        <option value="puntuacion">Puntuacion >= </option>
                     </select>
                 </div>
                 <div class="col-lg-10">

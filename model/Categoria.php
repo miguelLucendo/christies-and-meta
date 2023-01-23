@@ -101,4 +101,38 @@ class Categoria
 
         return $array;
     }
+    public static function getCategoriasByDescripcion($busqueda) {
+        $categorias = (new BD)->getCategoriasByDescripcion($busqueda);
+
+        $array = [];
+
+        foreach ($categorias as $categoria) {
+            $arr_aux = [];
+            $arr_aux['CodCategoria'] = $categoria['CodCategoria'];
+            $arr_aux['Nombre'] = $categoria['Nombre'];
+            $arr_aux['Descripcion'] = $categoria['Descripcion'];
+            $arr_aux['NombreCategoriaPadre'] = $categoria['NombreCategoriaPadre'];
+
+            $array[] = $arr_aux;
+        }
+
+        return $array;
+    }
+    public static function getCategoriasByPuntuacion($busqueda) {
+        $categorias = (new BD)->getCategoriasByPuntuacion($busqueda);
+
+        $array = [];
+
+        foreach ($categorias as $categoria) {
+            $arr_aux = [];
+            $arr_aux['CodCategoria'] = $categoria['CodCategoria'];
+            $arr_aux['Nombre'] = $categoria['Nombre'];
+            $arr_aux['Descripcion'] = $categoria['Descripcion'];
+            $arr_aux['NombreCategoriaPadre'] = $categoria['NombreCategoriaPadre'];
+
+            $array[] = $arr_aux;
+        }
+
+        return $array;
+    }
 }
