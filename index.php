@@ -101,6 +101,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $ac->getCategoriaByCod((int)$array_ruta[2]);
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'comentario' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $ac->getComentarioByCod((int)$array_ruta[2]);
+    // Devuelve una lista de categorias segun el filtro que reciba
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categorias' && isset($array_ruta[2]) && is_string($array_ruta[2])) {
+        $ac->getCategoriasByFiltro($array_ruta[2]);
     }
 } else { // O quiere entrar al frontend de la web o no existe la ruta a la que quiere acceder
     $fc = new FrontController;

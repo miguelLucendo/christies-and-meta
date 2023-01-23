@@ -1,0 +1,10 @@
+select {
+    height: 60px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4;
+    border-radius: 5px;
+}
+select:focus {
+    box-shadow: none;
+    border: 2px solid blue;
+}

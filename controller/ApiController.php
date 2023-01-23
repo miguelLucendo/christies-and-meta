@@ -80,7 +80,23 @@ class ApiController
 
         header("location: $project_url" . "index.php/admin/producto/$codProducto");
     }
-    public function bajaUsuario(int $codUsuario) {
+    public function bajaUsuario(int $codUsuario)
+    {
         Usuario::bajaUsuario($codUsuario);
+    }
+    public function getCategoriasByFiltro(string $filtro)
+    {
+        switch ($filtro) {
+            case 'nombre':
+                $resultado = Categoria::getCategoriasByName($filtro, $_POST['busqueda']);
+                break;
+            case 'descripcion':
+                $resultado = Categoria::getCategoriasByDescripcion($filtro, $_POST['busqueda']);
+                break;
+            case 'puntuacion':
+                $resultado = Categoria::getCategoriasByPuntuacion($filtro, $_POST['busqueda']);
+                break;
+        }
+        echo 'asd';
     }
 }
