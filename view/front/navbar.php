@@ -31,9 +31,15 @@
                                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link enlace-navbar" href="index.php/login">Login</a>
-                            </li>
+                            <?php if (!isset($_SESSION['autenticado_front'])) { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link enlace-navbar" href="index.php/login">Login</a>
+                                </li>
+                            <?php } else { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link enlace-navbar" href="index.php/panelusuario">Panel usuario</a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
