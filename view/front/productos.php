@@ -59,15 +59,35 @@ $project_url = $decoded_json['project_url'];
             </div>
             <!-- listado resultados -->
             <div class="row resultado-busqueda mt-5">
+                <div class="card mb-3">
+                    <div class="card-body">
+
+                        <div class="swiffy-slider slider-item-ratio slider-item-ratio-16x9 slider-nav-animation slider-nav-animation-fadein" id="swiffy-animation">
+                            <ul class="slider-container" id="container1">
+                                <li id="slide1" class="slide-visible"><img src="view/img/default-placeholder-gris.png" alt="..." loading="lazy"></li>
+                                <li id="slide2" class=""><img src="view/img/default-placeholder-gris.png" alt="..." loading="lazy"></li>
+                                <li id="slide3" class=""><img src="view/img/default-placeholder-gris.png" alt="..." loading="lazy"></li>
+                            </ul>
+
+                            <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+                            <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+
+                            <div class="slider-indicators">
+                                <button aria-label="Go to slide" class="active"></button>
+                                <button aria-label="Go to slide" class=""></button>
+                                <button aria-label="Go to slide" class=""></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <footer>
+            <footer>
 
-        </footer>
+            </footer>
 
-        <!-- js -->
-        <script src="view/front/js/navbar.js"></script>
-        <script src="view/front/js/productos.js"></script>
+            <!-- js -->
+            <script src="view/front/js/navbar.js"></script>
+            <script src="view/front/js/productos.js"></script>
 </body>
 
 </html>

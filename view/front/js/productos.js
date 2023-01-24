@@ -23,7 +23,7 @@ function buscaProductos() {
 
                 let productos = JSON.parse(returnedData);
 
-                resultados_busqueda.innerHTML = '';
+                // resultados_busqueda.innerHTML = '';
                 productos.forEach(producto => {
                     let card = document.createElement('div');
                     card.classList.add('card');
@@ -41,6 +41,9 @@ function buscaProductos() {
                     </div>
                 </div>
                 </div>`;
+                    card.onclick = () => {
+                        montaFichaGrande(card, producto.CodProducto);
+                    }
                     resultados_busqueda.appendChild(card);
                 });
             } catch (e) {
@@ -49,4 +52,48 @@ function buscaProductos() {
 
         }
     );
+}
+function montaFichaGrande(card, codProducto) {
+    card.innerHTML = '';
+
+    $.ajax({
+        url: URL_BASE + 'producto/' + codProducto,
+        type: 'GET',
+        success: (json) => {
+            let producto = JSON.parse(json);
+            card.onclick = undefined;
+            card.innerHTML = `
+            <div class="card-body">
+        
+                <div class="swiffy-slider slider-item-ratio slider-item-ratio-16x9 slider-nav-animation slider-nav-animation-fadein" id="swiffy-animation">
+    <ul class="slider-container" id="container1">
+        <li id="slide1" class="slide-visible"><img src="view/img/${producto.img1}" alt="..." loading="lazy"></li>
+        <li id="slide2" class=""><img src="view/img/${producto.img2}" alt="..." loading="lazy"></li>
+        <li id="slide3" class=""><img src="view/img/${producto.img3}" alt="..." loading="lazy"></li>
+    </ul>
+
+    <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+    <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+
+    <div class="slider-indicators">
+        <button aria-label="Go to slide" class="active"></button>
+        <button aria-label="Go to slide" class=""></button>
+        <button aria-label="Go to slide" class=""></button>
+    </div>
+</div>
+                <br>
+                <h5 class="card-title">${producto.nombre}</h5>
+                <br>
+                <p class="card-text">${producto.descripcion}</p>
+                <p class="card-text"><b>Longitud: </b>${producto.longitud}</p>
+                <p class="card-text"><b>Latitud: </b>${producto.latitud}</p>
+                <p class="card-text"><b>Precio: </b>${producto.precio}</p>
+                <p class="card-text"><b>Categoria: </b>${producto.nombreCategoria}</p>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>`;
+        }
+    })
+
 }
