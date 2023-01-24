@@ -204,4 +204,23 @@ class Producto
 
         return $array;
     }
+    public static function getProductosByCompras($busqueda) {
+        $productos = (new BD)->getProductosByCompras($busqueda);
+
+        $array = [];
+
+        foreach ($productos as $producto) {
+            $arr_aux = [];
+            $arr_aux['CodProducto'] = $producto['CodProducto'];
+            $arr_aux['Nombre'] = $producto['Nombre'];
+            $arr_aux['Descripcion'] = $producto['Descripcion'];
+            $arr_aux['Precio'] = $producto['Precio'];
+            $arr_aux['PopularidadTotal'] = $producto['PopularidadTotal'];
+            $arr_aux['Img1'] = $producto['Img1'];
+
+            $array[] = $arr_aux;
+        }
+
+        return $array;
+    }
 }
