@@ -35,7 +35,7 @@ $project_url = $decoded_json['project_url'];
 
                                 <h2 class="fw-bold mb-2 text-uppercase">Registro</h2>
                                 <p class="text-white-50 mb-5">Por favor, introduce un correo y una contraseña </p>
-                                <form action="index.php/register/process" method="POST">
+                                <form action="index.php/register/process" method="POST" id="form">
                                     <div class="form-outline form-white mb-4">
                                         <input type="email" id="user" name="user" class="form-control form-control-lg" />
                                         <label class="form-label" for="user">Email</label>
