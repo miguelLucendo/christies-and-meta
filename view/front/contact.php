@@ -11,7 +11,7 @@ $project_url = $decoded_json['project_url'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christie's & Meta · Registro</title>
+    <title>Christie's & Meta · Contacto</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -33,36 +33,27 @@ $project_url = $decoded_json['project_url'];
 
                             <div class="mb-md-5 mt-md-4 pb-5">
 
-                                <h2 class="fw-bold mb-2 text-uppercase">Registro</h2>
-                                <p class="text-white-50 mb-5">Por favor, introduce un correo y una contraseña </p>
-                                <form action="index.php/register/process" method="POST" id="form">
+                                <h2 class="fw-bold mb-2 text-uppercase">Contato</h2>
+                                <p class="text-white-50 mb-5">Por favor indica un nombre, un correo electrónico y tu mensaje</p>
+                                <form action="index.php/contact/process" method="POST">
                                     <div class="form-outline form-white mb-4">
                                         <input type="email" id="user" name="user" class="form-control form-control-lg" />
                                         <label class="form-label" for="user">Email</label>
                                     </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="email" id="user2" name="user2" class="form-control form-control-lg" />
-                                        <label class="form-label" for="user2">Repite el email</label>
-                                    </div>
 
                                     <div class="form-outline form-white mb-4">
-                                        <input type="password" id="pass" name="pass" class="form-control form-control-lg" />
-                                        <label class="form-label" for="pass">Contraseña</label>
+                                        <input type="text" id="name" name="name" class="form-control form-control-lg" />
+                                        <label class="form-label" for="name">Nombre</label>
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <input type="password" id="pass2" name="pass2" class="form-control form-control-lg" />
-                                        <label class="form-label" for="pass2">Repite contraseña</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                        <label class="form-label" for="name">Mensaje</label>
                                     </div>
 
 
-                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Registrarse</button>
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">¡Contacta!</button>
                                 </form>
 
-                            </div>
-
-                            <div>
-                                <p class="mb-0">¿Ya tienes cuenta? <a href="index.php/login" class="text-white-50 fw-bold">Inicia sesión</a>
-                                </p>
                             </div>
 
                         </div>
@@ -71,9 +62,6 @@ $project_url = $decoded_json['project_url'];
             </div>
         </div>
     </section>
-
-    <!-- mi js -->
-    <script src="view/front/js/validaRegistro.js"></script>
 </body>
 
 </html>

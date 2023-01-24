@@ -118,6 +118,8 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $ac->processFrontendLogin();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'register') {
         $ac->frontendRegister();
+    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'contact' && !isset($array_ruta[1])) {
+        $fc->muestraContacto();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'categorias') {
         $fc->muestraCategorias();
     } else { // No ha encontrado la ruta a la que quiere acceder el usuario
