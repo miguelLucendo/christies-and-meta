@@ -112,8 +112,8 @@ class ApiController
             case 'nombre':
                 $resultado = Producto::getProductosByName($_POST['busqueda']);
                 break;
-            case 'descripcion':
-                // $resultado = Producto::getProductosByDescripcion($_POST['busqueda']);
+            case 'categoria':
+                $resultado = Producto::getProductosByCategoria($_POST['busqueda']);
                 break;
             case 'comentarios':
                 if (!is_numeric($_POST['busqueda'])) {

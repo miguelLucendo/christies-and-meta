@@ -4,6 +4,9 @@ let URL_BASE_REDIRECCION = 'http://localhost/christies-and-meta/index.php/catego
 // triggereo el metodo al cargar la pagina para que siempre haya productos al entrar
 window.onload = () => {
     buscaProductos();
+    document.querySelector('#filtro').onchange = () => {
+        buscaProductos();
+    }
 }
 
 function buscaProductos() {
