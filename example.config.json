@@ -1,0 +1,9 @@
+{
+    "page_url": "/folder/index.php/",
+    "project_url": "http://url",
+    "database_url": "url to database",
+    "database_user": "username",
+    "database_pass": "password",
+    "phpmailer_mail": "mail",
+    "phpmailer_pass": "pass"
+}
