@@ -35,23 +35,23 @@ $project_url = $decoded_json['project_url'];
 
                                 <h2 class="fw-bold mb-2 text-uppercase">Registro</h2>
                                 <p class="text-white-50 mb-5">Por favor, introduce un correo y una contraseña </p>
-                                <form action="index.php/login/process" method="POST">
+                                <form action="index.php/register/process" method="POST">
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" name="user" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeEmailX">Email</label>
+                                        <input type="email" id="user" name="user" class="form-control form-control-lg" />
+                                        <label class="form-label" for="user">Email</label>
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" name="user2" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeEmailX">Repite el email</label>
+                                        <input type="email" id="user2" name="user2" class="form-control form-control-lg" />
+                                        <label class="form-label" for="user2">Repite el email</label>
                                     </div>
 
                                     <div class="form-outline form-white mb-4">
-                                        <input type="password" id="typePasswordX" name="pass" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typePasswordX">Contraseña</label>
+                                        <input type="password" id="pass" name="pass" class="form-control form-control-lg" />
+                                        <label class="form-label" for="pass">Contraseña</label>
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <input type="password" id="typePasswordX" name="pass2" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typePasswordX">Repite contraseña</label>
+                                        <input type="password" id="pass2" name="pass2" class="form-control form-control-lg" />
+                                        <label class="form-label" for="pass2">Repite contraseña</label>
                                     </div>
 
 
@@ -71,6 +71,9 @@ $project_url = $decoded_json['project_url'];
             </div>
         </div>
     </section>
+
+    <!-- mi js -->
+    <script src="view/front/js/validaRegistro.js"></script>
 </body>
 
 </html>
