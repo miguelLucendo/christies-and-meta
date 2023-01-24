@@ -55,6 +55,8 @@ $project_url = $decoded_json['project_url'];
                             <div>
                                 <p class="mb-0">¿No tienes cuenta? <a href="index.php/register" class="text-white-50 fw-bold">Registrate</a>
                                 </p>
+                                <p class="mb-0"><a href="index.php/home" class="text-white-50 fw-bold">Volver</a>
+                                </p>
                             </div>
 
                         </div>

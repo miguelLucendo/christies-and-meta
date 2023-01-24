@@ -35,10 +35,10 @@ $project_url = $decoded_json['project_url'];
 
                                 <h2 class="fw-bold mb-2 text-uppercase">Contacto</h2>
                                 <p class="text-white-50 mb-5">Por favor indica un nombre, un correo electrónico y tu mensaje</p>
-                                <form action="index.php/contact/process" method="POST">
+                                <form action="index.php/contact/process" method="POST" id="form">
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="user" name="user" class="form-control form-control-lg" />
-                                        <label class="form-label" for="user">Email</label>
+                                        <input type="email" id="mail" name="mail" class="form-control form-control-lg" />
+                                        <label class="form-label" for="mail">Email</label>
                                     </div>
 
                                     <div class="form-outline form-white mb-4">
@@ -46,7 +46,7 @@ $project_url = $decoded_json['project_url'];
                                         <label class="form-label" for="name">Nombre</label>
                                     </div>
                                     <div class="form-outline form-white mb-4">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                        <textarea class="form-control" id="mensaje" rows="4"></textarea>
                                         <label class="form-label" for="name">Mensaje</label>
                                     </div>
 
@@ -55,13 +55,19 @@ $project_url = $decoded_json['project_url'];
                                 </form>
 
                             </div>
-
+                            <div>
+                                <p class="mb-0"><a href="index.php/home" class="text-white-50 fw-bold">Volver</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- mi js -->
+    <script src="view/front/js/validaContacto.js"></script>
 </body>
 
 </html>
