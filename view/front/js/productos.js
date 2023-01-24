@@ -19,28 +19,33 @@ function buscaProductos() {
             busqueda: busqueda.value,
         },
         function (returnedData) {
-            let productos = JSON.parse(returnedData);
-            
-            resultados_busqueda.innerHTML = '';
-            productos.forEach(producto => {
-                let card = document.createElement('div');
-                card.classList.add('card');
-                card.classList.add('mb-3');
-                card.innerHTML = `<div class="row g-0">
+            try {
+
+                let productos = JSON.parse(returnedData);
+
+                resultados_busqueda.innerHTML = '';
+                productos.forEach(producto => {
+                    let card = document.createElement('div');
+                    card.classList.add('card');
+                    card.classList.add('mb-3');
+                    card.innerHTML = `<div class="row g-0">
                 <div class="col-md-2">
-                    <img src="view/img/${producto.Img1}" class="img-fluid rounded-start card-img-top" alt="...">
+                <img src="view/img/${producto.Img1}" class="img-fluid rounded-start card-img-top" alt="...">
                 </div>
                 <div class="col-md-10">
                     <div class="card-body">
-                        <h5 class="card-title">${producto.Nombre}</h5>
-                        <p class="card-text">${producto.Descripcion}</p>
-                        <p class="card-text"><b>Precio: </b>${producto.Precio}</p>
-                        <p class="mt-auto"><b>Popularidad: </b>${producto.PopularidadTotal}</p>
+                    <h5 class="card-title">${producto.Nombre}</h5>
+                    <p class="card-text">${producto.Descripcion}</p>
+                    <p class="card-text"><b>Precio: </b>${producto.Precio}</p>
+                    <p class="mt-auto"><b>Popularidad: </b>${producto.PopularidadTotal}</p>
                     </div>
                 </div>
-            </div>`;
-                resultados_busqueda.appendChild(card);
-            });
+                </div>`;
+                    resultados_busqueda.appendChild(card);
+                });
+            } catch (e) {
+
+            }
 
         }
     );

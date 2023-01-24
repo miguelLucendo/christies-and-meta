@@ -119,7 +119,7 @@ class ApiController
                 if (!is_numeric($_POST['busqueda'])) {
                     break;
                 }
-                // $resultado = Producto::getProductosByComentarios($_POST['busqueda']);
+                $resultado = Producto::getProductosByComentarios($_POST['busqueda']);
                 break;
             case 'compras':
                 if (!is_numeric($_POST['busqueda'])) {
