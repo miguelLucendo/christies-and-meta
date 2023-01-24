@@ -7,6 +7,9 @@ class FrontController {
     public function muestraCategorias() {
         include 'view/front/categorias.php';
     }
+    public function muestraProductos() {
+        include 'view/front/productos.php';
+    }
     public function muestraContacto() {
         include 'view/front/contact.php';
     }
