@@ -33,7 +33,7 @@ $project_url = $decoded_json['project_url'];
 
                             <div class="mb-md-5 mt-md-4 pb-5">
 
-                                <h2 class="fw-bold mb-2 text-uppercase">Contato</h2>
+                                <h2 class="fw-bold mb-2 text-uppercase">Contacto</h2>
                                 <p class="text-white-50 mb-5">Por favor indica un nombre, un correo electrónico y tu mensaje</p>
                                 <form action="index.php/contact/process" method="POST">
                                     <div class="form-outline form-white mb-4">
