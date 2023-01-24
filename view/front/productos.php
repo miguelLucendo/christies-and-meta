@@ -45,19 +45,21 @@ $project_url = $decoded_json['project_url'];
                     <select name="filtro" id="filtro">
                         <option value="nombre">Nombre contiene </option>
                         <option value="descripcion">Descripcion contiene </option>
-                        <option value="puntuacion">Puntuacion >= </option>
+                        <option value="comentarios">Nº Comentarios >= </option>
+                        <option value="compras">Nº Compras >= </option>
                     </select>
                 </div>
                 <div class="col-lg-10">
                     <div class="search">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control" placeholder="¿Buscas algo?" name="busqueda">
+                        <input type="text" class="form-control" placeholder="¿Buscas algo?" name="busqueda" onkeyup="buscaProductos()">
                         <button class="btn btn-primary" onclick="buscaProductos()">Buscar</button>
                     </div>
                 </div>
             </div>
             <!-- listado resultados -->
-            <div class="row resultado-busqueda mt-5"></div>
+            <div class="row resultado-busqueda mt-5">
+            </div>
         </div>
         <footer>
 

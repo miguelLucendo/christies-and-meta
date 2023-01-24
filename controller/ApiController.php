@@ -106,6 +106,34 @@ class ApiController
             echo '';
         }
     }
+    public function getProductosByFiltro(string $filtro)
+    {
+        switch ($filtro) {
+            case 'nombre':
+                $resultado = Producto::getProductosByName($_POST['busqueda']);
+                break;
+            case 'descripcion':
+                // $resultado = Producto::getProductosByDescripcion($_POST['busqueda']);
+                break;
+            case 'comentarios':
+                if (!is_numeric($_POST['busqueda'])) {
+                    break;
+                }
+                // $resultado = Producto::getProductosByComentarios($_POST['busqueda']);
+                break;
+            case 'compras':
+                if (!is_numeric($_POST['busqueda'])) {
+                    break;
+                }
+                // $resultado = Producto::getProductosByCompras($_POST['busqueda']);
+                break;
+        }
+        if (isset($resultado)) {
+            echo json_encode($resultado);
+        } else {
+            echo '';
+        }
+    }
     public function getProductosSlider() {
         // devuelve productos en función de si está autenticado el usuario o no
         if (isset($_SESSION['autenticado_front'])) {

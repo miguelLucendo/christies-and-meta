@@ -181,6 +181,14 @@ class BD
         $db = null;
         return $productos;
     }
+    public function getProductosByName($busqueda) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+        
+        $sql = "SELECT CodProducto, nombre, descripcion, precio, popularidadTotal, Img1 FROM productopopularidad where nombre like '%$busqueda%';";
+        $productos = $db->query($sql);
+        $db = null;
+        return $productos;
+    }
     // CATEGORIAS
     public function getCategoriaByCod($codCategoria)
     {
