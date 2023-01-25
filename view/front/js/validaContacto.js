@@ -39,7 +39,7 @@ window.onload = () => {
 function checkEmail(input) {
     let regexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-    if (regexp.test(input.value)) {
+    if (regexp.test(input.value) && input.value.length < 320) {
         if (!input.classList.contains('is-valid')) {
             input.classList.toggle('is-valid');
         }
@@ -64,9 +64,9 @@ function checkEmail(input) {
 function checkName(input) {
     // Dejo muy abierta la expresion regular porque no es un registro que se vaya a guardar
     // en ningun lado y los nombres pueden ser muy diferentes dependiendo el país, idioma, etc.
-    let regexp = /^[^0-9]+$/;
+    let regexp = /^[a-záéíóú]+$/i;
 
-    if (regexp.test(input.value)) {
+    if (regexp.test(input.value) && input.value.length < 75) {
         if (!input.classList.contains('is-valid')) {
             input.classList.toggle('is-valid');
         }
