@@ -43,7 +43,7 @@ class ApiController
     //
     public function modificaUsuario(int $codUsuario)
     {
-        Usuario::modificaUsuario($codUsuario, $_POST);
+        echo json_encode(Usuario::modificaUsuario($codUsuario, $_POST));
     }
     public function modificaCategoria(int $codCategoria)
     {

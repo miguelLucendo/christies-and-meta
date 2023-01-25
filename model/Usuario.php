@@ -34,7 +34,7 @@ class Usuario
         if (isset($datos['Contrasenya'])) {
             $datos['Contrasenya'] = sha1($datos['Contrasenya']);
         }
-        (new BD)->modificaUsuario($codUsuario, $datos);
+        return (new BD)->modificaUsuario($codUsuario, $datos);
     }
     /**
      * getUsuarioByCod
