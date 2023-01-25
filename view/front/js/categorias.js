@@ -1,6 +1,13 @@
 let URL_BASE = 'http://localhost/christies-and-meta/index.php/api/';
 let URL_BASE_REDIRECCION = 'http://localhost/christies-and-meta/index.php/categorias/';
 
+window.onload = () => {
+    buscaCategorias();
+    document.querySelector('#filtro').onchange = () => {
+        buscaCategorias();
+    }
+}
+
 function buscaCategorias() {
     let filtro = document.querySelector('select[name="filtro"]');
     let busqueda = document.querySelector('input[name="busqueda"]');
@@ -15,29 +22,24 @@ function buscaCategorias() {
             let tabla = document.createElement('table');
             resultados_busqueda.innerHTML = '';
 
-            if (categorias.length > 0) {
-                tabla.className = 'table';
-                tabla.innerHTML = `<thead class="thead-dark">
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Descripcion</th>
-                  <th scope="col">Categoria Padre</th>
-                </tr>
-              </thead>`;
-                resultados_busqueda.appendChild(tabla);
-            }
             categorias.forEach(categoria => {
-                let fila = document.createElement('tr');
-                
-                fila.innerHTML += `<td>${categoria.Nombre}</td><td>${categoria.Descripcion}</td><td>${categoria.NombreCategoriaPadre}</td>`;
-                tabla.appendChild(fila);
+                let card = document.createElement('div');
+                    card.classList.add('card');
+                    card.classList.add('mb-3');
+                    card.innerHTML = `<div class="row g-0">
+                <div class="col-md-2">
+                <img src="view/img/${categoria.Imagen}" class="img-fluid rounded-start card-img-top" alt="...">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                    <h5 class="card-title">${categoria.Nombre}</h5>
+                    <p class="card-text">${categoria.Descripcion}</p>
+                    <p class="card-text"><b>Categoria padre: </b>${categoria.NombreCategoriaPadre || 'No tiene'}</p>
+                    </div>
+                </div>
+                </div>`;
+                resultados_busqueda.appendChild(card);
             });
-            if (categorias.length > 0) {
-                resultados_busqueda.innerHTML += '</table>';
-            } else { // No se ha encontrado ninguna categoria con ese filtro
-                resultados_busqueda.innerHTML = '<h2 class="text-center">Ups... No se ha encontrado ninguna categoría</h2>';
-                resultados_busqueda.innerHTML += '<h3 class="text-center">¿Estás seguro de que quieres buscar eso?</h3>';
-            }
         }
     );
 

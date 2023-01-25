@@ -52,7 +52,7 @@ $project_url = $decoded_json['project_url'];
                 <div class="col-lg-10">
                     <div class="search">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control" placeholder="¿Buscas algo?" name="busqueda">
+                        <input type="text" class="form-control" placeholder="¿Buscas algo?" name="busqueda" onkeyup="buscaCategorias()">
                         <button class="btn btn-primary" onclick="buscaCategorias()">Buscar</button>
                     </div>
                 </div>

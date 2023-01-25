@@ -286,7 +286,7 @@ class BD
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = "select c.CodCategoria, c.Nombre, c.Descripcion, c2.Nombre as NombreCategoriaPadre from categoria c left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria where c.Nombre LIKE '%$filtro%'";
+        $sql = "select c.CodCategoria, c.Nombre, c.Descripcion, c.Imagen, c2.Nombre as NombreCategoriaPadre from categoria c left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria where c.Nombre LIKE '%$filtro%'";
 
         $categorias = $db->query($sql);
         $db = null;
@@ -296,7 +296,7 @@ class BD
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = "select c.CodCategoria, c.Nombre, c.Descripcion, c2.Nombre as NombreCategoriaPadre from categoria c left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria where c.Descripcion LIKE '%$filtro%'";
+        $sql = "select c.CodCategoria, c.Nombre, c.Descripcion, c.Imagen, c2.Nombre as NombreCategoriaPadre from categoria c left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria where c.Descripcion LIKE '%$filtro%'";
 
         $categorias = $db->query($sql);
         $db = null;
@@ -306,7 +306,7 @@ class BD
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = "SELECT c.CodCategoria, c.Nombre, c.Descripcion, c2.Nombre as NombreCategoriaPadre, ifnull(sum(pp.PopularidadTotal),0) as PopularidadTotal FROM productopopularidad pp right join categoria c on pp.CodCategoria = c.CodCategoria left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria group by c.CodCategoria having ifnull(sum(pp.PopularidadTotal),0) >= $filtro;";
+        $sql = "SELECT c.CodCategoria, c.Nombre, c.Descripcion, c.Imagen, c2.Nombre as NombreCategoriaPadre, ifnull(sum(pp.PopularidadTotal),0) as PopularidadTotal FROM productopopularidad pp right join categoria c on pp.CodCategoria = c.CodCategoria left join categoria c2 on c.CodCategoriaPadre = c2.CodCategoria group by c.CodCategoria having ifnull(sum(pp.PopularidadTotal),0) >= $filtro;";
 
         $categorias = $db->query($sql);
         $db = null;

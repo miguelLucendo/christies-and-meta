@@ -94,6 +94,7 @@ class Categoria
             $arr_aux['CodCategoria'] = $categoria['CodCategoria'];
             $arr_aux['Nombre'] = $categoria['Nombre'];
             $arr_aux['Descripcion'] = $categoria['Descripcion'];
+            $arr_aux['Imagen'] = $categoria['Imagen'];
             $arr_aux['NombreCategoriaPadre'] = $categoria['NombreCategoriaPadre'];
 
             $array[] = $arr_aux;
@@ -111,6 +112,7 @@ class Categoria
             $arr_aux['CodCategoria'] = $categoria['CodCategoria'];
             $arr_aux['Nombre'] = $categoria['Nombre'];
             $arr_aux['Descripcion'] = $categoria['Descripcion'];
+            $arr_aux['Imagen'] = $categoria['Imagen'];
             $arr_aux['NombreCategoriaPadre'] = $categoria['NombreCategoriaPadre'];
 
             $array[] = $arr_aux;
@@ -128,6 +130,7 @@ class Categoria
             $arr_aux['CodCategoria'] = $categoria['CodCategoria'];
             $arr_aux['Nombre'] = $categoria['Nombre'];
             $arr_aux['Descripcion'] = $categoria['Descripcion'];
+            $arr_aux['Imagen'] = $categoria['Imagen'];
             $arr_aux['NombreCategoriaPadre'] = $categoria['NombreCategoriaPadre'];
 
             $array[] = $arr_aux;
