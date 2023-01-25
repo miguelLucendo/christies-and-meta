@@ -119,6 +119,8 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $fc->muestraHome();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'login' && !isset($array_ruta[1])) {
         $ac->frontendLogin();
+    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'logout' && !isset($array_ruta[1])) {
+        $ac->frontendLogout();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'login' && isset($array_ruta[1]) && $array_ruta[1] == 'process') {
         $ac->processFrontendLogin();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'register') {
