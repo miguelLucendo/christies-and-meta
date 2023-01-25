@@ -48,7 +48,7 @@ $project_url = $decoded_json['project_url'];
                         </div>
                     </div>
                     <div class="col-md-9 border-right">
-                        <div class="p-3 py-5">
+                        <div class="p-3 py-5" id="panel">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h4 class="text-right">Panel de usuario</h4>
                             </div>
@@ -73,9 +73,12 @@ $project_url = $decoded_json['project_url'];
                                     <label class="labels">Monedero</label>
                                     <input type="text" class="form-control" disabled value="<?php echo $usuario->moneda ?>">
                                 </div>
+
+                            </div>
+                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button mb-3" type="button" id="guardar" onclick="guardar(event, <?php echo $usuario->codUsuario ?>)">Guardar perfil</button></div>
+                            <div class="mensajes">
                                 
                             </div>
-                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" id="guardar" onclick="guardar(event, <?php echo $usuario->codUsuario ?>)">Guardar perfil</button></div>
                         </div>
                     </div>
                 </div>

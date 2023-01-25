@@ -164,7 +164,16 @@ function guardar(evento, codUsuario) {
                 Email: inputEmail1.value,
                 Nombre: inputNombre.value,
                 Apellidos: inputApellidos.value,
+            },
+            function (returnedData) {
+                let mensajes = document.querySelector('.mensajes');
+                if (returnedData == 'true') {
+                    mensajes.innerHTML = '<div class="alert alert-success" role="alert">Se ha actualizado con éxito!</div>';
+                } else {
+                    mensajes.innerHTML = '<div class="alert alert-danger" role="alert">No se ha podido actualizar!</div>';
+                }
             }
         );
+        
     }
 }
