@@ -12,6 +12,7 @@ $project_url = $decoded_json['project_url'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christie's & Meta</title>
+    <link rel="icon" href="christies-meta-logo-mini.png" type="image/png">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- bootstrap -->
