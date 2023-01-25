@@ -37,33 +37,58 @@ $project_url = $decoded_json['project_url'];
 
     <div class="content">
         <div class="container py-5">
-            <h2 class="text-center">Panel usuario</h2>
-            <!-- search bar -->
-            <div class="row height d-flex justify-content-center align-items-center mt-5" id="search-bar">
-                <div class="col-lg-2 mb-lg-0 mb-3 text-center text-lg-left">
-                    <select name="filtro" id="filtro">
-                        <option value="nombre">Nombre contiene </option>
-                        <option value="descripcion">Descripcion contiene </option>
-                        <option value="puntuacion">Puntuacion >= </option>
-                    </select>
-                </div>
-                <div class="col-lg-10">
-                    <div class="search">
-                        <i class="fa fa-search"></i>
-                        <input type="text" class="form-control" placeholder="¿Buscas algo?" name="busqueda">
-                        <button class="btn btn-primary" onclick="buscaCategorias()">Buscar</button>
+            <!-- <h2 class="text-center">Panel usuario</h2> -->
+            <div class="container rounded bg-white mt-5 mb-5">
+                <div class="row">
+                    <div class="col-md-3 border-right">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                            <img class="rounded-circle mt-5" width="150px" src="view/img/default-placeholder-gris.png">
+                            <span class="font-weight-bold"><?php echo $usuario->nombre ?></span>
+                            <span class="text-black-50"><?php echo $usuario->email ?></span>
+                        </div>
+                    </div>
+                    <div class="col-md-9 border-right">
+                        <div class="p-3 py-5">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="text-right">Panel de usuario</h4>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12 mt-3">
+                                    <label class="labels">Nombre</label>
+                                    <input type="text" class="form-control" placeholder="Nombre" value="<?php echo $usuario->nombre ?>">
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <label class="labels">Apellidos</label>
+                                    <input type="text" class="form-control" value="<?php echo $usuario->apellidos ?>" placeholder="Apellidos">
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <label class="labels">Email</label>
+                                    <input type="text" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>">
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <label class="labels">Nuevo email</label>
+                                    <input type="text" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>">
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <label class="labels">Monedero</label>
+                                    <input type="text" class="form-control" disabled value="<?php echo $usuario->moneda ?>">
+                                </div>
+                                
+                            </div>
+                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Guardar perfil</button></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- listado resultados -->
-            <div class="row resultado-busqueda mt-5"></div>
         </div>
-        <footer>
+    </div>
+    </div>
+    <footer>
 
-        </footer>
+    </footer>
 
-        <!-- js -->
-        <script src="view/front/js/navbar.js"></script>
+    <!-- js -->
+    <script src="view/front/js/navbar.js"></script>
 </body>
 
 </html>
