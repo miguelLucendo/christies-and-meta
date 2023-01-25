@@ -78,6 +78,17 @@ $project_url = $decoded_json['project_url'];
                                 <button aria-label="Go to slide" class=""></button>
                             </div>
                         </div>
+                        <br>
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <br>
+                        <p class="card-text">${producto.descripcion}</p>
+                        <p class="card-text"><b>Longitud: </b>${producto.longitud}</p>
+                        <p class="card-text"><b>Latitud: </b>${producto.latitud}</p>
+                        <p class="card-text"><b>Precio: </b>${producto.precio}</p>
+                        <p class="card-text"><b>Categoria: </b>${producto.nombreCategoria}</p>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary">Comprar</button>
+                        </div>
                     </div>
                 </div>
             </div>
