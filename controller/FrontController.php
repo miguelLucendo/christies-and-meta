@@ -13,4 +13,7 @@ class FrontController {
     public function muestraContacto() {
         include 'view/front/contact.php';
     }
+    public function muestraPanelUsuario() {
+        include 'view/front/panelusuario.php';
+    }
 }

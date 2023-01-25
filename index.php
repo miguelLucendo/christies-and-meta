@@ -129,6 +129,8 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $fc->muestraCategorias();
     } else if (isset($array_ruta[0]) && $array_ruta[0] == 'productos') {
         $fc->muestraProductos();
+    } else if (isset($array_ruta[0]) && $array_ruta[0] == 'panelusuario') {
+        $fc->muestraPanelUsuario();
     } else { // No ha encontrado la ruta a la que quiere acceder el usuario
         $c = new Controller;
         $c->carga404();
