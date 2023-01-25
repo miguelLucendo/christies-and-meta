@@ -64,7 +64,7 @@ window.onload = () => {
 function checkEmail(input) {
     let regexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-    if (regexp.test(input.value)) {
+    if (regexp.test(input.value) && input.value.length < 320) {
         if (!input.classList.contains('is-valid')) {
             input.classList.toggle('is-valid');
         }
@@ -127,6 +127,7 @@ function inputCoincide(input1, input2, tipo) {
 function passCheck(input) {
     if (
         input.value.length > 7 &&
+        input.value.length < 75 &&
         /[a-z]+/.test(input.value) &&
         /[A-Z]+/.test(input.value) &&
         /[0-9]+/.test(input.value)
