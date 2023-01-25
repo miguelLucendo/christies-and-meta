@@ -55,19 +55,19 @@ $project_url = $decoded_json['project_url'];
                             <div class="row mt-3">
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Nombre</label>
-                                    <input type="text" class="form-control" placeholder="Nombre" value="<?php echo $usuario->nombre ?>">
+                                    <input type="text" class="form-control" placeholder="Nombre" value="<?php echo $usuario->nombre ?>" name="nombre" id="nombre">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Apellidos</label>
-                                    <input type="text" class="form-control" value="<?php echo $usuario->apellidos ?>" placeholder="Apellidos">
+                                    <input type="text" class="form-control" value="<?php echo $usuario->apellidos ?>" placeholder="Apellidos" name="apellidos" id="apellidos">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Email</label>
-                                    <input type="text" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>">
+                                    <input type="email" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>" name="email1" id="email1">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Nuevo email</label>
-                                    <input type="text" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>">
+                                    <input type="email" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>" name="email2" id="email2">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Monedero</label>
@@ -75,7 +75,7 @@ $project_url = $decoded_json['project_url'];
                                 </div>
                                 
                             </div>
-                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Guardar perfil</button></div>
+                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" id="guardar" onclick="guardar(event)">Guardar perfil</button></div>
                         </div>
                     </div>
                 </div>
@@ -89,6 +89,7 @@ $project_url = $decoded_json['project_url'];
 
     <!-- js -->
     <script src="view/front/js/navbar.js"></script>
+    <script src="view/front/js/validaPanelUsuario.js"></script>
 </body>
 
 </html>
