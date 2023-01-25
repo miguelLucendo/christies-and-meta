@@ -8,7 +8,9 @@ window.onload = () => {
         buscaProductos();
     }
 }
-
+function comentar(boton, codProducto) {
+    console.log(1);
+}
 function buscaProductos() {
     let filtro = document.querySelector('select[name="filtro"]');
     let busqueda = document.querySelector('input[name="busqueda"]');
@@ -23,7 +25,7 @@ function buscaProductos() {
 
                 let productos = JSON.parse(returnedData);
 
-                // resultados_busqueda.innerHTML = '';
+                resultados_busqueda.innerHTML = '';
                 productos.forEach(producto => {
                     let card = document.createElement('div');
                     card.classList.add('card');
@@ -85,12 +87,13 @@ function montaFichaGrande(card, codProducto) {
                 <h5 class="card-title">${producto.nombre}</h5>
                 <br>
                 <p class="card-text">${producto.descripcion}</p>
-                <p class="card-text"><b>Longitud: </b>${producto.longitud}</p>
-                <p class="card-text"><b>Latitud: </b>${producto.latitud}</p>
+                <p class="card-text"><b>Longitud: </b>${producto.longitud || 'No tiene'}</p>
+                <p class="card-text"><b>Latitud: </b>${producto.latitud || 'No tiene'}</p>
                 <p class="card-text"><b>Precio: </b>${producto.precio}</p>
                 <p class="card-text"><b>Categoria: </b>${producto.nombreCategoria}</p>
                 <div class="text-center">
                     <button type="button" class="btn btn-primary">Comprar</button>
+                    <button type="button" class="btn btn-primary" onclick="comentar(this, ${producto.codProducto})">Comentar</button>
                 </div>
             </div>`;
         }
