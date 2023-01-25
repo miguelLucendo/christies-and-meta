@@ -12,6 +12,7 @@ $project_url = $decoded_json['project_url'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christie's & Meta</title>
+    <link rel="icon" href="christies-meta-logo-mini.png" type="image/png">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- bootstrap -->
@@ -37,7 +38,6 @@ $project_url = $decoded_json['project_url'];
 
     <div class="content">
         <div class="container py-5">
-            <!-- <h2 class="text-center">Panel usuario</h2> -->
             <div class="container rounded bg-white mt-5 mb-5">
                 <div class="row">
                     <div class="col-md-3 border-right">
@@ -55,19 +55,19 @@ $project_url = $decoded_json['project_url'];
                             <div class="row mt-3">
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Nombre</label>
-                                    <input type="text" class="form-control" placeholder="Nombre" value="<?php echo $usuario->nombre ?>" name="nombre" id="nombre">
+                                    <input type="text" class="form-control is-valid" placeholder="Nombre" value="<?php echo $usuario->nombre ?>" name="nombre" id="nombre">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Apellidos</label>
-                                    <input type="text" class="form-control" value="<?php echo $usuario->apellidos ?>" placeholder="Apellidos" name="apellidos" id="apellidos">
+                                    <input type="text" class="form-control is-valid" value="<?php echo $usuario->apellidos ?>" placeholder="Apellidos" name="apellidos" id="apellidos">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Email</label>
-                                    <input type="email" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>" name="email1" id="email1">
+                                    <input type="email" class="form-control is-valid" placeholder="Email" value="<?php echo $usuario->email ?>" name="email1" id="email1">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Nuevo email</label>
-                                    <input type="email" class="form-control" placeholder="Email" value="<?php echo $usuario->email ?>" name="email2" id="email2">
+                                    <input type="email" class="form-control is-valid" placeholder="Email" value="<?php echo $usuario->email ?>" name="email2" id="email2">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Monedero</label>
