@@ -1,4 +1,8 @@
 var inputs;
+var inputNombre = document.querySelector('#nombre');
+var inputApellidos = document.querySelector('#apellidos');
+var inputEmail1 = document.querySelector('#email1');
+var inputEmail2 = document.querySelector('#email2');
 window.onload = () => {
     inputs = document.querySelectorAll('.form-control:not([disabled])');
 
@@ -6,10 +10,6 @@ window.onload = () => {
         input.bien = true;
     });
 
-    let inputNombre = document.querySelector('#nombre');
-    let inputApellidos = document.querySelector('#apellidos');
-    let inputEmail1 = document.querySelector('#email1');
-    let inputEmail2 = document.querySelector('#email2');
 
     inputNombre.onblur = () => {
         checkName(inputNombre);
@@ -147,7 +147,7 @@ function inputCoincide(input1, input2, tipo) {
     }
 }
 
-function guardar(evento) {
+function guardar(evento, codUsuario) {
     let aux = false;
     inputs.forEach(input => {
         if (input.bien == false) {
@@ -158,6 +158,13 @@ function guardar(evento) {
         evento.preventDefault();
         evento.stopPropagation();
     } else {
-        console.log(1);
+        $.post(
+            'http://localhost/christies-and-meta/index.php/api/usuario/modificacion/' + codUsuario,
+            {
+                Email: inputEmail1.value,
+                Nombre: inputNombre.value,
+                Apellidos: inputApellidos.value,
+            }
+        );
     }
 }

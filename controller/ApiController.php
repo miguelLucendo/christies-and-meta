@@ -44,12 +44,6 @@ class ApiController
     public function modificaUsuario(int $codUsuario)
     {
         Usuario::modificaUsuario($codUsuario, $_POST);
-
-        $config_json = file_get_contents('config.json');
-        $decoded_json = json_decode($config_json, true);
-        $project_url = $decoded_json['project_url'];
-
-        header("location: $project_url" . "index.php/admin/usuario/$codUsuario");
     }
     public function modificaCategoria(int $codCategoria)
     {

@@ -7,7 +7,7 @@ $project_url = $decoded_json['project_url'];
 <html lang="en">
 
 <head>
-<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <base href="<?php echo $project_url ?>">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -63,32 +63,31 @@ $project_url = $decoded_json['project_url'];
                                             <button type="button" class="btn btn-danger btn-fw float-end" onclick="bajaUsuario(<?php echo $usuario->codUsuario ?>)">Dar de baja</button>
                                         </div>
                                     </div>
-                                    <form method="POST" action="index.php/api/usuario/modificacion/<?php echo $usuario->codUsuario ?>">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<?php echo $usuario->email ?>">
+
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<?php echo $usuario->email ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="<?php echo $usuario->nombre ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombre">Apellidos</label>
+                                        <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Nombre" value="<?php echo $usuario->apellidos ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="moneda">Moneda</label>
+                                        <input type="number" min="1" step="0.0001" class="form-control" id="moneda" name="moneda" placeholder="Moneda" value="<?php echo $usuario->moneda ?>">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <input type="submit" class="btn btn-info btn-fw" value="Guardar" onclick="guardar(event, <?php echo $usuario->codUsuario ?>)">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="nombre">Nombre</label>
-                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="<?php echo $usuario->nombre ?>">
+                                        <div class="col-md-10" style="display:none;">
+                                            <span class="text-info">Usuario actualizado con éxito</span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="nombre">Apellidos</label>
-                                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Nombre" value="<?php echo $usuario->apellidos ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="moneda">Moneda</label>
-                                            <input type="number" min="1" step="0.0001" class="form-control" id="moneda" name="moneda" placeholder="Moneda" value="<?php echo $usuario->moneda ?>">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <input type="submit" class="btn btn-info btn-fw" value="Guardar">
-                                            </div>
-                                            <div class="col-md-10" style="display:none;">
-                                                <span class="text-info">Usuario actualizado con éxito</span>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -124,6 +123,7 @@ $project_url = $decoded_json['project_url'];
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="view/admin/js/botonesBaja.js"></script>
+    <script src="view/admin/js/modificaUsuario.js"></script>
     <!-- End custom js for this page -->
 </body>
 

@@ -75,7 +75,7 @@ $project_url = $decoded_json['project_url'];
                                 </div>
                                 
                             </div>
-                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" id="guardar" onclick="guardar(event)">Guardar perfil</button></div>
+                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" id="guardar" onclick="guardar(event, <?php echo $usuario->codUsuario ?>)">Guardar perfil</button></div>
                         </div>
                     </div>
                 </div>
