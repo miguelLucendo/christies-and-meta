@@ -444,7 +444,7 @@ class BD
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = "delete from usuario where CodUsuario = :codUsuario;";
+        $sql = "delete from usuario where CodUsuario = :codUsuario and Admin = 1;";
         $stmt = $db->prepare($sql);
         $resultado = $stmt->execute(['codUsuario' => $codUsuario]);
 
@@ -459,7 +459,7 @@ class BD
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = "delete from comentario where CodUsuario = :codUsuario;";
+        $sql = "delete from comentario where CodUsuario = :codUsuario and Admin = 1;";
         $stmt = $db->prepare($sql);
         $resultado = $stmt->execute(['codUsuario' => $codUsuario]);
 
@@ -474,7 +474,7 @@ class BD
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
 
-        $sql = "update compra set CodUsuario = null where CodUsuario = :codUsuario";
+        $sql = "update compra set CodUsuario = null where CodUsuario = :codUsuario and Admin = 1;";
         $stmt = $db->prepare($sql);
         $resultado = $stmt->execute(['codUsuario' => $codUsuario]);
 

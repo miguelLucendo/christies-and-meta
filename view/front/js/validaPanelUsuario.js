@@ -1,3 +1,6 @@
+let URL_BASE = 'http://localhost/christies-and-meta/index.php/api/';
+let URL_BASE_REDIRECCION = 'http://localhost/christies-and-meta/index.php/logout/';
+
 var inputs;
 var inputNombre = document.querySelector('#nombre');
 var inputApellidos = document.querySelector('#apellidos');
@@ -176,4 +179,13 @@ function guardar(evento, codUsuario) {
         );
         
     }
+}
+function baja(codUsuario) {
+    $.ajax({
+        url: URL_BASE + 'usuario/baja/' + codUsuario,
+        type: 'GET',
+        success: (returnedData) => {
+            window.location.href = URL_BASE_REDIRECCION;
+        }
+    })
 }

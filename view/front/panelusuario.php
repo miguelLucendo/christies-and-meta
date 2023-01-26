@@ -45,6 +45,7 @@ $project_url = $decoded_json['project_url'];
                             <img class="rounded-circle mt-5" width="150px" src="view/img/default-placeholder-gris.png">
                             <span class="font-weight-bold"><?php echo $usuario->nombre ?></span>
                             <span class="text-black-50"><?php echo $usuario->email ?></span>
+                            <button class="btn btn-danger profile-button mt-3" type="button" id="baja" onclick="baja(<?php echo $usuario->codUsuario ?>)">Darse de baja</button>
                         </div>
                     </div>
                     <div class="col-md-9 border-right">
