@@ -42,7 +42,7 @@ window.onload = () => {
 function checkName(input) {
     // Dejo muy abierta la expresion regular porque no es un registro que se vaya a guardar
     // en ningun lado y los nombres pueden ser muy diferentes dependiendo el país, idioma, etc.
-    let regexp = /^[a-záéíóú]+$/i;
+    let regexp = /^[a-záéíóú0-9 -]+$/i;
 
     if (regexp.test(input.value) && input.value.length < 50) {
         if (!input.classList.contains('is-valid')) {
@@ -65,7 +65,7 @@ function checkName(input) {
 function checkDescripcion(input) {
     // Dejo muy abierta la expresion regular porque no es un registro que se vaya a guardar
     // en ningun lado y los nombres pueden ser muy diferentes dependiendo el país, idioma, etc.
-    let regexp = /^[a-záéíóú0-9 ]+$/i;
+    let regexp = /^[a-záéíóú0-9 -]+$/i;
 
     if (regexp.test(input.value) && input.value.length < 100) {
         if (!input.classList.contains('is-valid')) {
