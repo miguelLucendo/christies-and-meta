@@ -35,7 +35,7 @@ class AuthController
 
             if ((new BD)->login($_POST['user'], $_POST['pass'])) {
                 $_SESSION['autenticado_back'] = true;
-
+                $_SESSION['codUsuario'] = Usuario::getCodByUser($_POST['user']);
 
 
                 header("location: $project_url" . "index.php/admin/home");
@@ -43,6 +43,16 @@ class AuthController
                 header("location: $project_url" . "index.php/admin/login");
             }
         }
+    }
+    public function backendLogout()
+    {
+        session_destroy();
+
+        $config_json = file_get_contents('config.json');
+        $decoded_json = json_decode($config_json, true);
+        $project_url = $decoded_json['project_url'];
+
+        header("location: $project_url" . "index.php/admin/login");
     }
     public function frontendLogin()
     {
@@ -66,6 +76,7 @@ class AuthController
 
         header("location: $project_url" . "index.php/home");
     }
+    
     public function frontendRegister()
     {
         if (!isset($_SESSION['autenticado_front'])) {

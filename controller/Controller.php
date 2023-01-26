@@ -7,6 +7,7 @@ class Controller {
     }
     public function muestraHome() {
         include 'model/controlback.php';
+        $admin = Usuario::getUsuarioByCod($_SESSION['codUsuario']);
         include 'view/admin/home.php';
     }
     public function muestraFicha() {

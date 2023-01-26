@@ -54,7 +54,7 @@ $project_url = $decoded_json['project_url'];
                 <div class="card-body">
                   <div class="display-4">
                     <div class="text-info text-center">
-                      Bienvenido, <span class="text-white">Henry Klein</span>, has iniciado sesión en la parte de administrador 
+                      Bienvenido, <span class="text-white"><?php echo $admin->nombre; ?></span>, has iniciado sesión en la parte de administrador 
                       de Christie's & Meta <br> a día <span class="text-white"><?php echo date('d-m-Y'); ?></span> a las
                       <span class="text-white"><?php echo date('H:i:s'); ?></span>.
                     </div>
@@ -68,7 +68,7 @@ $project_url = $decoded_json['project_url'];
               <div class="card">
                 <div class="card-body">
                   <div class="display-4">
-                    asd
+                    Puedes administrar el sitio web desde el menú lateral.
                   </div>
                 </div>
               </div>
