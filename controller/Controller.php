@@ -41,6 +41,13 @@ class Controller {
         }
         include 'view/admin/fichacategoria.php';
     }
+    public function muestraFichaCategoriaNueva() {
+        $categorias = Categoria::getAllCategorias();
+        $categoria = new Categoria(
+            0, '', '', '', 0
+        );
+        include 'view/admin/fichacategoria.php';
+    }
     public function muestraFichaProducto(int $codProducto) {
         $producto = Producto::getProductoByCod($codProducto);
         $categorias = Categoria::getAllCategorias();

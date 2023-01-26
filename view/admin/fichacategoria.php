@@ -56,79 +56,82 @@ $project_url = $decoded_json['project_url'];
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $categoria->nombre ?></h4>
-                                    <form method="POST" enctype="multipart/form-data" action="index.php/api/categoria/modificacion/<?php echo $categoria->codCategoria ?>">
-
-                                        <div class="form-group">
-                                            <label for="nombre">Nombre</label>
-                                            <input type="text" class="form-control" id="email" name="nombre" placeholder="nombre" value="<?php echo $categoria->nombre ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="descripcion">Descripción</label>
-                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="5"><?php echo $categoria->descripcion ?>
+                                    <?php if ($categoria->codCategoria != 0) { ?>
+                                        <form method="POST" enctype="multipart/form-data" action="index.php/api/categoria/modificacion/<?php echo $categoria->codCategoria ?>">
+                                        <?php } else { ?>
+                                            <form method="POST" enctype="multipart/form-data" action="index.php/api/categoria/alta">
+                                            <?php } ?>
+                                            <div class="form-group">
+                                                <label for="nombre">Nombre</label>
+                                                <input type="text" class="form-control" id="email" name="nombre" placeholder="nombre" value="<?php echo $categoria->nombre ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="descripcion">Descripción</label>
+                                                <textarea class="form-control" id="descripcion" name="descripcion" rows="5"><?php echo $categoria->descripcion ?>
                                             </textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Imagen</label>
-                                            <input type="file" name="imagen" class="file-upload-default">
-                                            <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Sube imagen">
-                                                <span class="input-group-append">
-                                                    <button class="file-upload-browse btn btn-primary" type="button">Subir</button>
-                                                </span>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4 my-3">
-                                                <img src="<?php
-                                                            if ($categoria->imagen) {
-                                                                $ruta = $categoria->imagen;
-                                                                echo "view/img/$ruta";
-                                                            }
-                                                            ?>" alt="" class="img-fluid">
+
+                                            <div class="form-group">
+                                                <label>Imagen</label>
+                                                <input type="file" name="imagen" class="file-upload-default">
+                                                <div class="input-group col-xs-12">
+                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Sube imagen">
+                                                    <span class="input-group-append">
+                                                        <button class="file-upload-browse btn btn-primary" type="button">Subir</button>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Categoria padre</label>
-                                            <select name="codCategoriaPadre" class="js-example-basic-single" style="width:100%">
-                                                <?php
-                                                if ($categoriaPadre) {
-                                                    echo "<option value='0' selected>-- Sin Categoria --</option>";
-                                                } else {
-                                                    echo "<option value='0'>-- Sin Categoria --</option>";
-                                                }
-
-                                                foreach ($categorias as $categoriaAux) {
-                                                    $codigo = $categoriaAux->codCategoria;
-                                                    $nombre = $categoriaAux->nombre;
-
-                                                    if ($categoria->codCategoria == $codigo) {
-                                                        continue;
+                                            <div class="row">
+                                                <div class="col-md-4 my-3">
+                                                    <img src="<?php
+                                                                if ($categoria->imagen) {
+                                                                    $ruta = $categoria->imagen;
+                                                                    echo "view/img/$ruta";
+                                                                }
+                                                                ?>" alt="" class="img-fluid">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Categoria padre</label>
+                                                <select name="codCategoriaPadre" class="js-example-basic-single" style="width:100%">
+                                                    <?php
+                                                    if ($categoriaPadre) {
+                                                        echo "<option value='0' selected>-- Sin Categoria --</option>";
+                                                    } else {
+                                                        echo "<option value='0'>-- Sin Categoria --</option>";
                                                     }
 
-                                                    if ($categoriaPadre) {
-                                                        if ($codigo == $categoriaPadre->codCategoria) {
-                                                            echo "<option value='$codigo' selected>$nombre</option>";
+                                                    foreach ($categorias as $categoriaAux) {
+                                                        $codigo = $categoriaAux->codCategoria;
+                                                        $nombre = $categoriaAux->nombre;
+
+                                                        if ($categoria->codCategoria == $codigo) {
+                                                            continue;
+                                                        }
+
+                                                        if ($categoriaPadre) {
+                                                            if ($codigo == $categoriaPadre->codCategoria) {
+                                                                echo "<option value='$codigo' selected>$nombre</option>";
+                                                            } else {
+                                                                echo "<option value='$codigo'>$nombre</option>";
+                                                            }
                                                         } else {
                                                             echo "<option value='$codigo'>$nombre</option>";
                                                         }
-                                                    } else {
-                                                        echo "<option value='$codigo'>$nombre</option>";
                                                     }
-                                                }
 
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <input type="submit" class="btn btn-info btn-fw" value="Guardar">
+                                                    ?>
+                                                </select>
                                             </div>
-                                            <div class="col-md-10" style="display:none;">
-                                                <span class="text-info">Categoria actualizada con éxito</span>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <input type="submit" class="btn btn-info btn-fw" value="Guardar">
+                                                </div>
+                                                <div class="col-md-10" style="display:none;">
+                                                    <span class="text-info">Categoria actualizada con éxito</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                            </form>
                                 </div>
                             </div>
                         </div>

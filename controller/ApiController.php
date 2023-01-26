@@ -45,6 +45,14 @@ class ApiController
     {
         echo json_encode(Usuario::modificaUsuario($codUsuario, $_POST));
     }
+    public function altaCategoria() {
+        Categoria::altaCategoria($_POST);
+        $config_json = file_get_contents('config.json');
+        $decoded_json = json_decode($config_json, true);
+        $project_url = $decoded_json['project_url'];
+
+        header("location: $project_url" . "index.php/admin/categorias");
+    }
     public function modificaCategoria(int $codCategoria)
     {
         $mega = 1024 * 1024;

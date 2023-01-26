@@ -16,27 +16,15 @@ class Categoria
         $this->codCategoriaPadre = $codCategoriaPadre;
     }
 
-    public static function altaCategoria($datos) {
+    public static function altaCategoria($datos)
+    {
         $codCategoria = (new BD)->altaCategoria($datos);
-        Categoria::modificaCategoria($codCategoria, ['imagen'=>"categoria/$codCategoria/img.png"]);
-        Categoria::guardaImagen($codCategoria, $_FILES['imagen']);
+        Categoria::modificaCategoria($codCategoria, ['imagen' => "categoria/$codCategoria/img.png"]);
     }
     public static function modificaCategoria($codCategoria, $datos)
     {
-        // Gestionamos la imagen para que bd solo tenga que insertar la ruta en la bbdd
-        if ($datos['imagen']['size'] > 0) {
-            $temporal = $datos['imagen']['tmp_name'];
-            $path = $_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria/img.png";
-
-            if (!is_dir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria")) {
-                mkdir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria");
-            }
-            move_uploaded_file($temporal, $path);
-            $datos['imagen'] = "categoria/$codCategoria/img.png";
-        } else {
-            unset($datos['imagen']);
-        }
         (new BD)->modificaCategoria($codCategoria, $datos);
+        Categoria::guardaImagen($codCategoria, $_FILES['imagen']);
     }
 
     public static function getCategoriaByCod($codCategoria): Categoria
@@ -89,7 +77,8 @@ class Categoria
 
         return $array;
     }
-    public static function getCategoriasByName($busqueda) {
+    public static function getCategoriasByName($busqueda)
+    {
         $categorias = (new BD)->getCategoriasByName($busqueda);
 
         $array = [];
@@ -107,7 +96,8 @@ class Categoria
 
         return $array;
     }
-    public static function getCategoriasByDescripcion($busqueda) {
+    public static function getCategoriasByDescripcion($busqueda)
+    {
         $categorias = (new BD)->getCategoriasByDescripcion($busqueda);
 
         $array = [];
@@ -125,7 +115,8 @@ class Categoria
 
         return $array;
     }
-    public static function getCategoriasByPuntuacion($busqueda) {
+    public static function getCategoriasByPuntuacion($busqueda)
+    {
         $categorias = (new BD)->getCategoriasByPuntuacion($busqueda);
 
         $array = [];
@@ -144,13 +135,14 @@ class Categoria
         return $array;
     }
     // imagen
-    public static function guardaImagen($codCategoria, $imagen) {
+    public static function guardaImagen($codCategoria, $imagen)
+    {
         if ($imagen['size'] > 0) {
             $temporal = $imagen['tmp_name'];
-            $path = $_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria/img.png";
+            $path = $_SERVER['DOCUMENT_ROOT'] . "/christies-and-meta/view/img/categoria/$codCategoria/img.png";
 
-            if (!is_dir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria")) {
-                mkdir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria");
+            if (!is_dir($_SERVER['DOCUMENT_ROOT'] . "/christies-and-meta/view/img/categoria/$codCategoria")) {
+                mkdir($_SERVER['DOCUMENT_ROOT'] . "/christies-and-meta/view/img/categoria/$codCategoria");
             }
             move_uploaded_file($temporal, $path);
         }

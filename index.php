@@ -50,6 +50,9 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categoria' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $c = new Controller;
         $c->muestraFichaCategoria((int)$array_ruta[2]);
+    } else if (isset($array_ruta[1]) && $array_ruta[1] == 'categoria' && isset($array_ruta[2]) && $array_ruta[2] == 'nuevo') {
+        $c = new Controller;
+        $c->muestraFichaCategoriaNueva();
     } else if (isset($array_ruta[1]) && $array_ruta[1] == 'producto' && isset($array_ruta[2]) && is_numeric($array_ruta[2])) {
         $c = new Controller;
         $c->muestraFichaProducto((int)$array_ruta[2]);
@@ -83,6 +86,11 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         isset($array_ruta[3]) && is_numeric($array_ruta[3])
     ) {
         $ac->modificaCategoria((int)$array_ruta[3]);
+    } else if (
+        isset($array_ruta[1]) && $array_ruta[1] == 'categoria' &&
+        isset($array_ruta[2]) && $array_ruta[2] == "alta"
+    ) {
+        $ac->altaCategoria();
     } else if (
         isset($array_ruta[1]) && $array_ruta[1] == 'producto' &&
         isset($array_ruta[2]) && $array_ruta[2] == "modificacion" &&
