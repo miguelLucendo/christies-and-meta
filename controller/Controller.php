@@ -6,6 +6,7 @@ class Controller {
         include 'view/admin/error-404.php';
     }
     public function muestraHome() {
+        include 'model/controlback.php';
         include 'view/admin/home.php';
     }
     public function muestraFicha() {
