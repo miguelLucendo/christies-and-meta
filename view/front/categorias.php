@@ -60,9 +60,8 @@ $project_url = $decoded_json['project_url'];
             <!-- listado resultados -->
             <div class="row resultado-busqueda mt-5"></div>
         </div>
-        <footer>
-
-        </footer>
+        <!-- footer -->
+        <?php require_once 'footer.php' ?>
 
         <!-- js -->
         <script src="view/front/js/navbar.js"></script>
