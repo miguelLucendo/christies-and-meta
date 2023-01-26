@@ -64,7 +64,7 @@ $project_url = $decoded_json['project_url'];
                                             <button type="button" class="btn btn-danger btn-fw float-end" onclick="bajaProducto(<?php echo $producto->codProducto ?>)">Dar de baja</button>
                                         </div>
                                     </div>
-                                    <form method="POST" enctype="multipart/form-data" action="index.php/api/producto/modificacion/<?php echo $producto->codProducto ?>">
+                                    <form method="POST" enctype="multipart/form-data" action="index.php/api/producto/modificacion/<?php echo $producto->codProducto ?>" id="form">
 
                                         <div class="form-group">
                                             <label for="nombre">Nombre</label>
@@ -223,6 +223,7 @@ $project_url = $decoded_json['project_url'];
     <script src="view/template/assets/js/select2.js"></script>
 
     <script src="view/admin/js/comprobacionFormularioProducto.js"></script>
+    <script src="view/admin/js/validacionProducto.js"></script>
     <!-- End custom js for this page -->
 </body>
 
