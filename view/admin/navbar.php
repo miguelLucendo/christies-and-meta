@@ -26,14 +26,14 @@
                   <h6 class="p-3 mb-0">Perfil</h6>
                   <div class="dropdown-divider"></div>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
+                  <a class="dropdown-item preview-item" onclick="window.location.href='http://localhost/christies-and-meta/index.php/admin/logout'">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1" onclick="window.location.href='http://localhost/christies-and-meta/index.php/admin/logout'">Log out</p>
+                      <p class="preview-subject mb-1">Log out</p>
                     </div>
                   </a>
                 </div>
