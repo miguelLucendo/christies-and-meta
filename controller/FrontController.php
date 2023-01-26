@@ -14,6 +14,7 @@ class FrontController {
         include 'view/front/contact.php';
     }
     public function muestraPanelUsuario() {
+        include 'model/controlfront.php';
         $usuario = Usuario::getUsuarioByCod($_SESSION['codUsuario']);
         include 'view/front/panelusuario.php';
     }
