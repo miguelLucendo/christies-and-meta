@@ -123,7 +123,7 @@ $project_url = $decoded_json['project_url'];
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="view/admin/js/botonesBaja.js"></script>
-    <script src="view/admin/js/modificaUsuario.js"></script>
+    <script src="view/admin/js/validacionUsuario.js"></script>
     <!-- End custom js for this page -->
 </body>
 
