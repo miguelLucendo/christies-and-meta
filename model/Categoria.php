@@ -16,6 +16,11 @@ class Categoria
         $this->codCategoriaPadre = $codCategoriaPadre;
     }
 
+    public static function altaCategoria($datos) {
+        $codCategoria = (new BD)->altaCategoria($datos);
+        Categoria::modificaCategoria($codCategoria, ['imagen'=>"categoria/$codCategoria/img.png"]);
+        Categoria::guardaImagen($codCategoria, $_FILES['imagen']);
+    }
     public static function modificaCategoria($codCategoria, $datos)
     {
         // Gestionamos la imagen para que bd solo tenga que insertar la ruta en la bbdd
@@ -137,5 +142,17 @@ class Categoria
         }
 
         return $array;
+    }
+    // imagen
+    public static function guardaImagen($codCategoria, $imagen) {
+        if ($imagen['size'] > 0) {
+            $temporal = $imagen['tmp_name'];
+            $path = $_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria/img.png";
+
+            if (!is_dir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria")) {
+                mkdir($_SERVER['DOCUMENT_ROOT']."/christies-and-meta/view/img/categoria/$codCategoria");
+            }
+            move_uploaded_file($temporal, $path);
+        }
     }
 }

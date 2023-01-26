@@ -214,6 +214,26 @@ class BD
         return $productos;
     }
     // CATEGORIAS
+    public function altaCategoria($datos) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = "insert into categoria (";
+
+        foreach ($datos as $campo => $valor) {
+            $sql .= "$campo, ";
+        }
+        $sql = substr($sql, 0, strlen($sql) - 2) . ') values (';
+        foreach ($datos as $campo => $valor) {
+            $sql .= ":$campo, ";
+        }
+        $sql = substr($sql, 0, strlen($sql) - 2) . ')';
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute($datos);
+        return $db->lastInsertId();
+        
+    }
     public function getCategoriaByCod($codCategoria)
     {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
@@ -256,7 +276,7 @@ class BD
     public function modificaCategoria($codCategoria, $datos)
     {
         // si la categoria padre es 0 significa que no la ha elegido
-        if ($datos['codCategoriaPadre'] == 0) {
+        if (isset($datos['codCategoriaPadre']) && $datos['codCategoriaPadre'] == 0) {
             $datos['codCategoriaPadre'] = null;
         }
 
