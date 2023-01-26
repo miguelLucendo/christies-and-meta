@@ -223,4 +223,12 @@ class Producto
 
         return $array;
     }
+    public static function compraUsuario($codProducto, $codUsuario) {
+        if (!(new BD)->existeCompra($codProducto, $codUsuario)) {
+            (new BD)->compraUsuario($codProducto, $codUsuario);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

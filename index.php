@@ -101,6 +101,12 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
     ) {
         $ac->modificaProducto((int)$array_ruta[3]);
     } else if (
+        isset($array_ruta[1]) && $array_ruta[1] == 'producto' &&
+        isset($array_ruta[2]) && $array_ruta[2] == "comprar" &&
+        isset($array_ruta[3]) && is_numeric($array_ruta[3])
+    ) {
+        $ac->compraProducto((int)$array_ruta[3]);
+    } else if (
         isset($array_ruta[1]) && $array_ruta[1] == 'usuario' &&
         isset($array_ruta[2]) && $array_ruta[2] == "baja" &&
         isset($array_ruta[3]) && is_numeric($array_ruta[3])

@@ -146,4 +146,11 @@ class ApiController
             echo json_encode(Producto::getProductosSliderNormal());
         }
     }
+    public function compraProducto(int $codProducto) {
+        if (!isset($_SESSION['autenticado_front'])) {
+            echo 'false';
+        } else {
+            return Producto::compraUsuario($codProducto, $_SESSION['codUsuario']);
+        }
+    }
 }

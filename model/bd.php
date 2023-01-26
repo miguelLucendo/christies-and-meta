@@ -213,6 +213,34 @@ class BD
         $db = null;
         return $productos;
     }
+    public function existeCompra($codProducto, $codUsuario) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = 'select * from compra where CodUsuario = :user and CodProducto = :producto';
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute(array('user' => $codUsuario, 'producto' => $codProducto));
+
+        if ($stmt->rowCount() >= 1) {
+            $stmt->closeCursor();
+            $db = null;
+            return true;
+        }
+        $stmt->closeCursor();
+        $db = null;
+        return false;
+    }
+    public function compraUsuario($codProducto, $codUsuario) {
+        $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);
+
+        $sql = 'INSERT INTO compra (CodUsuario, CodProducto) VALUES (:coduser, :codprod)';
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute([
+            'codprod' => $codProducto,
+            'coduser' => $codUsuario,
+        ]);
+    }
     // CATEGORIAS
     public function altaCategoria($datos) {
         $db = new PDO($this->ruta, $this->user_bbdd, $this->pass);

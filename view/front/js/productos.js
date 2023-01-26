@@ -11,6 +11,31 @@ window.onload = () => {
 function comentar(boton, codProducto) {
     console.log(1);
 }
+function comprar(padre, codProducto) {
+    $.ajax({
+        url: URL_BASE + 'producto/comprar/' + codProducto,
+        type: 'GET',
+        success: (returnedData) => {
+            if (returnedData == 'true') {
+                let div = document.createElement('div');
+                div.classList.add('alert');
+                div.classList.add('alert-success');
+                div.role = 'alert';
+                div.innerHTML = 'Se ha comprado con exito!';
+                padre.appendChild(div);
+            } else {
+                let div = document.createElement('div');
+                div.classList.add('alert');
+                div.classList.add('alert-danger');
+                div.role = 'alert';
+                div.innerHTML = 'No se ha podido realizar la compra!';
+                padre.appendChild(div);
+            }
+        }
+    })
+
+
+}
 function buscaProductos() {
     let filtro = document.querySelector('select[name="filtro"]');
     let busqueda = document.querySelector('input[name="busqueda"]');
@@ -92,7 +117,7 @@ function montaFichaGrande(card, codProducto) {
                 <p class="card-text"><b>Precio: </b>${producto.precio}</p>
                 <p class="card-text"><b>Categoria: </b>${producto.nombreCategoria}</p>
                 <div class="text-center">
-                    <button type="button" class="btn btn-primary">Comprar</button>
+                    <button type="button" class="btn btn-primary" onclick="comprar(this.parentElement.parentElement, ${producto.codProducto})">Comprar</button>
                     <button type="button" class="btn btn-primary" onclick="comentar(this, ${producto.codProducto})">Comentar</button>
                 </div>
             </div>`;
