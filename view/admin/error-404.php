@@ -43,7 +43,11 @@ $project_url = $decoded_json['project_url'];
             </div>
             <div class="row mt-5">
               <div class="col-12 text-center mt-xl-2">
-                <a class="text-white font-weight-medium" href="index.php/admin/home">Volver a la home</a>
+                <?php if ($admin) { ?>
+                  <a class="text-white font-weight-medium" href="index.php/admin/home">Volver a la home</a>
+                <?php } else { ?>
+                  <a class="text-white font-weight-medium" href="index.php/home">Volver a la home</a>
+                <?php } ?>
               </div>
             </div>
             <div class="row mt-5">

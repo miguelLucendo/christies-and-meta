@@ -61,7 +61,7 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $c->muestraFichaProducto((int)$array_ruta[2]);
     } else {
         $c = new Controller;
-        $c->carga404();
+        $c->carga404(true);
     }
 
     // Quiere hacer consultas a la api de la aplicación
@@ -152,6 +152,6 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "admin") {
         $fc->muestraPanelUsuario();
     } else { // No ha encontrado la ruta a la que quiere acceder el usuario
         $c = new Controller;
-        $c->carga404();
+        $c->carga404(false);
     }
 }

@@ -2,7 +2,7 @@
 
 class Controller {
 
-    public function carga404() {
+    public function carga404($admin) {
         include 'view/admin/error-404.php';
     }
     public function muestraHome() {
